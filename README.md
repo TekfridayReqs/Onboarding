@@ -1,17 +1,21 @@
-# TekFriday — Employee Onboarding Site
+# TekFriday — Employee Onboarding (Video Journey)
 
-An interactive, slide-by-slide onboarding experience for new TekFriday Processing Solution
-employees. Each part of the orientation is its own animated screen, linked together with a
-**Next** button. Part 7 (Brand Ambassador) is intentionally locked as **Coming Soon**.
+An interactive onboarding experience where **each part plays as its own video**. When you
+open a part, its video sequence plays automatically — timed reveals, an animated backdrop,
+and a real video transport bar (play/pause, scrubber, elapsed/total time, replay). The
+**Next** button carries you to the next part, whose video then plays in turn. Part 7 (Brand
+Ambassador) is intentionally locked as **Coming Soon**.
 
-Everything lives in a single self-contained `index.html` — no build step, no dependencies
-(fonts load from Google Fonts via CDN). It works on desktop and mobile.
+Everything is one self-contained `index.html` — no build step and no external media files.
+The "videos" are animated motion-graphic sequences rendered in the browser, so they stay
+crisp at any size, load instantly, and are easy to edit. (If you later have real `.mp4`
+files, they can be dropped into the same per-page player.)
 
-## Sections
+## Parts (each is a page-wise video)
 
 0. Welcome
 1. Know Your Company
-2. Know Our Culture
+2. Know Your Culture
 3. Know Your Team
 4. Know Your Work
 5. How We Measure Success
@@ -19,34 +23,31 @@ Everything lives in a single self-contained `index.html` — no build step, no d
 7. Become a Brand Ambassador — *Coming Soon*
 8. Welcome Aboard (closing)
 
-Navigate with the **Next / Back** buttons, the journey rail on the left, or the
-**← / →** arrow keys.
+### Controls
+- **Per-video:** play/pause, scrub bar (click or drag), replay, and Spacebar to toggle play.
+- **Between pages:** Next / Back buttons, the journey rail on the left, or the ← / → keys.
+- A video autoplays when its page opens and resets when you leave; when a video finishes,
+  the Next button gently pulses.
+- Honors `prefers-reduced-motion`: motion is disabled and all content shows at once.
 
 ## Publish on GitHub Pages
 
 1. Create a new repository on GitHub (e.g. `tekfriday-onboarding`).
-2. Push these files to the `main` branch:
+2. Push these files (a repo with commits is already initialised in this folder):
 
    ```bash
-   git init
-   git add .
-   git commit -m "Onboarding site"
-   git branch -M main
    git remote add origin https://github.com/<your-username>/<your-repo>.git
    git push -u origin main
    ```
 
-   (A repo is already initialised in this folder with one commit, so you can skip
-   straight to adding the remote and pushing.)
-
 3. In the repo, go to **Settings → Pages**.
 4. Under **Build and deployment → Source**, choose **Deploy from a branch**.
 5. Select branch **main**, folder **/ (root)**, then **Save**.
-6. After a minute your site is live at
-   `https://<your-username>.github.io/<your-repo>/`.
+6. Your site goes live at `https://<your-username>.github.io/<your-repo>/`.
 
-## Editing content
+## Editing
 
-All copy lives directly in `index.html` inside the `<section class="scene">` blocks.
-Colors, fonts and spacing are defined as CSS variables in the `:root` block at the top of
-the `<style>` tag, so brand tweaks are made in one place.
+- **Content** lives in the `<section class="scene">` blocks. Each animated element is a
+  `.beat` with a `data-in="<seconds>"` attribute that sets when it appears.
+- **Video length** for a part is the `data-duration="<seconds>"` on its `<section>`.
+- **Colors, fonts, spacing** are CSS variables in the `:root` block at the top.
