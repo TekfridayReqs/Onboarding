@@ -128,8 +128,8 @@
     width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;letter-spacing:0;
   }
   h2.title{font-size:clamp(28px,3.6vw,42px);color:var(--navy);font-weight:700;line-height:1.05;letter-spacing:-.5px;}
-  .lede{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:760px;margin-top:14px;}
-  .divider{height:3px;width:64px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:3px;margin:20px 0 30px;}
+  .lede{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:780px;margin-top:14px;}
+  .divider{height:3px;width:64px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:3px;margin:20px 0 28px;}
 
   /* reveal animation for content */
   .r{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
@@ -141,7 +141,8 @@
   .g2{grid-template-columns:repeat(2,1fr);}
   .g3{grid-template-columns:repeat(3,1fr);}
   .g4{grid-template-columns:repeat(4,1fr);}
-  @media(max-width:1080px){.g4{grid-template-columns:repeat(2,1fr);}}
+  .g5{grid-template-columns:repeat(5,1fr);}
+  @media(max-width:1080px){.g4{grid-template-columns:repeat(2,1fr);}.g5{grid-template-columns:repeat(3,1fr);}}
 
   .card{
     background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
@@ -156,7 +157,8 @@
   }
   .ico svg{width:24px;height:24px;}
   .ico.solid{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;}
-  .ico.gold{background:linear-gradient(135deg,#FCD34D,var(--gold));color:#5a4500;}
+  .ico.sm{width:40px;height:40px;border-radius:11px;margin-bottom:12px;}
+  .ico.sm svg{width:21px;height:21px;}
   .card h3{font-size:16.5px;color:var(--navy);font-weight:600;margin-bottom:6px;}
   .card h4{font-size:15px;color:var(--blue);font-weight:600;margin-bottom:5px;}
   .card p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
@@ -166,7 +168,15 @@
     background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 16px;
     font-size:13.5px;font-weight:500;color:var(--navy-2);display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-sm);
   }
-  .chip svg{width:16px;height:16px;color:var(--blue);}
+
+  /* origin story */
+  .story{background:var(--surface);border:1px solid transparent;border-left:4px solid var(--sky);border-radius:0 16px 16px 0;padding:22px 26px;}
+  .story .lbl{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:10px;}
+  .story p{font-size:14.5px;color:var(--ink);line-height:1.62;}
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;}
+  .stat{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:11px 17px;min-width:120px;box-shadow:var(--shadow-sm);}
+  .stat b{display:block;font-family:"Sora";font-size:20px;color:var(--navy);line-height:1.1;}
+  .stat span{font-size:11.5px;color:var(--ink-soft);}
 
   .quote{
     background:var(--surface);border-left:4px solid var(--blue);border-radius:0 14px 14px 0;
@@ -182,7 +192,7 @@
   }
   .list.sky li::before{background:var(--sky);}
 
-  .section-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);font-weight:700;margin:34px 0 16px;}
+  .section-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);font-weight:700;margin:32px 0 16px;}
 
   /* phase cards (30-60-90) */
   .phase .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);font-weight:700;}
@@ -195,7 +205,7 @@
   .cover h1{font-size:clamp(40px,6.5vw,76px);line-height:.98;color:var(--navy);font-weight:800;letter-spacing:-1.5px;}
   .cover h1 em{font-style:normal;background:linear-gradient(120deg,var(--blue),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .cover .sub{font-size:18px;color:var(--ink-soft);margin:20px 0 8px;font-weight:500;}
-  .cover .tag{font-size:15px;color:var(--ink-soft);max-width:560px;line-height:1.55;}
+  .cover .tag{font-size:15px;color:var(--ink-soft);max-width:580px;line-height:1.55;}
   .value-pills{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 8px;}
   .vp{
     padding:10px 18px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--navy-2);
@@ -210,8 +220,8 @@
   /* ---------- Coming soon ---------- */
   .soon{
     text-align:center;background:linear-gradient(180deg,var(--surface),var(--white));
-    border:1px solid var(--line);border-radius:24px;padding:56px 32px;box-shadow:var(--shadow);
-    max-width:680px;margin:10px auto 0;position:relative;overflow:hidden;
+    border:1px solid var(--line);border-radius:24px;padding:52px 32px;box-shadow:var(--shadow);
+    max-width:720px;margin:8px auto 0;position:relative;overflow:hidden;
   }
   .soon::before{content:"";position:absolute;inset:0;background:
     radial-gradient(circle at 20% 0%,rgba(93,173,226,.18),transparent 45%),
@@ -221,8 +231,8 @@
   .soon-ic svg{width:38px;height:38px;}
   .soon .badge{display:inline-block;background:var(--gold);color:#4a3800;font-weight:700;font-size:12px;letter-spacing:1.5px;
     text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:18px;position:relative;}
-  .soon h2{color:var(--navy);font-size:32px;margin-bottom:12px;position:relative;}
-  .soon p{color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:440px;margin:0 auto;position:relative;}
+  .soon h2{color:var(--navy);font-size:30px;margin-bottom:12px;position:relative;}
+  .soon p{color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:480px;margin:0 auto;position:relative;}
   .soon .preview{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:26px;position:relative;}
   .soon .preview .lk{background:#fff;border:1px dashed var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px;
     color:#9db4c8;display:flex;align-items:center;gap:7px;}
@@ -236,7 +246,7 @@
   .close .vline span{font-family:"Sora";font-weight:600;color:var(--blue);font-size:15px;display:flex;align-items:center;gap:14px;}
   .close .vline span::after{content:"·";color:var(--sky);}
   .close .vline span:last-child::after{content:"";}
-  .close p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:620px;margin:8px auto 0;}
+  .close p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:640px;margin:8px auto 0;}
 
   /* ---------- Footer nav ---------- */
   .nav{
@@ -276,7 +286,7 @@
     .scene{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;display:none;padding:30px 20px 20px;}
     .scene.is-active{display:block;}
     .scenes{position:relative;}
-    .g2,.g3{grid-template-columns:1fr;}
+    .g2,.g3,.g5{grid-template-columns:1fr;}
     .g4{grid-template-columns:repeat(2,1fr);}
     .nav{position:sticky;bottom:0;}
     .progress-mini{display:none;}
@@ -302,7 +312,7 @@
     <div class="rail-title">Your Onboarding Journey</div>
     <ul class="steps" id="steps"></ul>
     <div class="rail-foot">
-      A captive delivery centre of <b>Advance Financials</b>.<br>Innovation · Transparency · Adaptability · Impact
+      A captive delivery centre of <b>Advance Financials</b>.<br>Innovation · Adaptability · Impact · Transparency
     </div>
   </aside>
 
@@ -322,13 +332,13 @@
         <div class="scene-inner">
           <div class="cover-eyebrow r" style="--d:0">Employee Onboarding &amp; Orientation</div>
           <h1 class="r" style="--d:1">Welcome to <em>TekFriday</em></h1>
-          <div class="sub r" style="--d:2">Building a culture of Innovation, Transparency, Adaptability &amp; Impact.</div>
-          <p class="tag r" style="--d:3">We are a fintech building innovative solutions that help US-based financial services companies grow and compete. This short orientation walks you through who we are, how we work, and what your first 90 days look like.</p>
+          <div class="sub r" style="--d:2">Get to know your company, your culture, your team and your work.</div>
+          <p class="tag r" style="--d:3">We are a fintech on a mission to build innovative solutions that help financial services companies across the United States grow and compete in a fast-paced world. This short orientation walks you through who we are, how we work, and what your first 90 days look like.</p>
           <div class="value-pills r" style="--d:4">
             <span class="vp"><span class="ddot"></span>Innovation</span>
-            <span class="vp"><span class="ddot"></span>Transparency</span>
             <span class="vp"><span class="ddot"></span>Adaptability</span>
             <span class="vp"><span class="ddot"></span>Impact</span>
+            <span class="vp"><span class="ddot"></span>Transparency</span>
           </div>
         </div>
       </section>
@@ -339,10 +349,20 @@
           <div class="eyebrow r" style="--d:0"><span class="n">01</span> Stage One</div>
           <h2 class="title r" style="--d:1">Know Your Company</h2>
           <div class="divider r" style="--d:2"></div>
-          <p class="lede r" style="--d:2">TekFriday Processing Solution is a fintech company on a mission to build innovative solutions that help financial services companies in the US grow and compete in a fast-moving world. Founded in 2013 by Anil, Srinath &amp; Mridula with fewer than 20 people, we have grown into a 200+ member team. In 2019 we were acquired by <strong>Advance Financials</strong> and became its captive delivery centre.</p>
+          <p class="lede r" style="--d:2"><strong>Who we are.</strong> TekFriday Processing Solution is a fintech company. Our mission is to build innovative solutions that help financial services companies across the US grow and compete in a fast-moving world.</p>
 
-          <div class="section-label r" style="--d:3">What We Do</div>
-          <div class="chips r" style="--d:3">
+          <div class="story r" style="--d:3;margin-top:24px">
+            <div class="lbl">Our Story</div>
+            <p>In an overcrowded alternative-lending market where conformity was the norm, three people set out to be a disruptive force — and a pioneer. Anil, Srinath and Mridula saw a gap in the industry and combined their ideas and ingenuity to build solutions that help alternative-lending companies lead their own segments. We began operations in 2013 with fewer than 20 people; today we are a team of more than 200.</p>
+            <div class="stats">
+              <div class="stat"><b>2013</b><span>Founded</span></div>
+              <div class="stat"><b>200+</b><span>Team members today</span></div>
+              <div class="stat"><b>2019</b><span>Acquired by Advance Financials</span></div>
+            </div>
+          </div>
+
+          <div class="section-label r" style="--d:4">What We Do</div>
+          <div class="chips r" style="--d:4">
             <span class="chip">Portfolio Management</span>
             <span class="chip">Data Analytics</span>
             <span class="chip">Transaction Processing</span>
@@ -351,26 +371,23 @@
             <span class="chip">Production &amp; Maintenance</span>
           </div>
 
-          <div class="grid g2" style="margin-top:30px">
-            <div class="card r" style="--d:4">
-              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <h3>Our Vision</h3>
-              <p>Delivering innovative &amp; impactful fintech solutions that create sustainable value for our customers and stakeholders.</p>
+          <div class="grid g2" style="margin-top:26px">
+            <div class="card accent r" style="--d:5">
+              <h3>How We're Different</h3>
+              <p>We are a lean team working in an agile setup. Our people thrive in fast-paced environments, which lets us deliver every one of these services with speed and focus.</p>
             </div>
-            <div class="card r" style="--d:5">
-              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div>
-              <h3>Our Mission</h3>
-              <p>To solve complex business challenges through technology and operational excellence — staying ahead of competitors by redefining financial solutions with cutting-edge technology.</p>
+            <div class="card accent r" style="--d:6">
+              <h3>Our Goal</h3>
+              <p>To keep innovating and building solutions that help us grow — always aligned with our business strategy — by redefining financial solutions with cutting-edge technology.</p>
             </div>
           </div>
 
-          <div class="section-label r" style="--d:6">How We're Different &amp; Our Core Values</div>
-          <p class="lede r" style="--d:6;margin-top:0">We're a lean team that works in an agile setup, moving quickly to deliver across every service. Four values guide how we do it:</p>
-          <div class="grid g4 r" style="--d:7;margin-top:16px">
-            <div class="card bar"><h4>Innovative</h4><p>Find better ways to work and create real value — meaningful change, not buzzwords.</p></div>
-            <div class="card bar"><h4>Adaptive</h4><p>Embrace change and stay agile. Move toward the collective goal, not rigid roles.</p></div>
-            <div class="card bar"><h4>Impact</h4><p>Focus on outcomes that create meaningful value and align with company strategy.</p></div>
-            <div class="card bar"><h4>Transparency</h4><p>Be respectful, honest and open. Collaborate across functions, egos aside.</p></div>
+          <div class="section-label r" style="--d:7">Our Values</div>
+          <div class="grid g4 r" style="--d:7">
+            <div class="card bar"><h4>Innovation</h4><p>Look at every problem or process and find a better way to work — real improvements that create value, not just buzzwords like "automation" or "AI".</p></div>
+            <div class="card bar"><h4>Adaptability</h4><p>Embrace change and stay agile. Rather than staying rigid about roles, we adapt and pull together toward a common, collective goal.</p></div>
+            <div class="card bar"><h4>Impact</h4><p>Focus on business outcomes that create meaningful value and align with company strategy. Everyone has a role in getting us where we want to be.</p></div>
+            <div class="card bar"><h4>Transparency &amp; Compliance</h4><p>Be respectful, honest and open. We work in a matrix structure, collaborating across departments — egos aside and open to feedback.</p></div>
           </div>
         </div>
       </section>
@@ -379,16 +396,17 @@
       <section class="scene" id="scene-2">
         <div class="scene-inner">
           <div class="eyebrow r" style="--d:0"><span class="n">02</span> Stage Two</div>
-          <h2 class="title r" style="--d:1">Know Our Culture</h2>
+          <h2 class="title r" style="--d:1">Know Your Culture</h2>
           <div class="divider r" style="--d:2"></div>
-          <div class="quote r" style="--d:2">"Culture defines how decisions are made, how teams collaborate, and how success is achieved."</div>
-          <div class="grid g3" style="margin-top:30px">
-            <div class="card r" style="--d:3"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Ownership</h3><p>The task assigned to you is yours to carry. Take responsibility for commitments and outcomes.</p></div>
-            <div class="card r" style="--d:4"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Accountability</h3><p>Completing a task is good — delivering your best work is the standard. Own the result.</p></div>
-            <div class="card r" style="--d:5"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div><h3>Collaboration</h3><p>Work openly across functions toward the common goal — without bureaucratic red tape.</p></div>
-            <div class="card r" style="--d:6"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div><h3>Continuous Learning</h3><p>Stay curious. Learn skills and tech that improve our systems and grow your potential.</p></div>
-            <div class="card r" style="--d:7"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h3>Strategy Focus</h3><p>Align every decision with our parent company's strategy — to lead and disrupt our industry.</p></div>
-            <div class="card r" style="--d:8"><div class="ico solid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4M8 11c-1.7 0-3-1.6-3-3.5S6.3 4 8 4m4 7a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm0 0c-3.5 0-6 2-6 5h12c0-3-2.5-5-6-5Z"/></svg></div><h3>Respect</h3><p>An inclusive ecosystem where every idea is valued. Respect each other's opinions and feedback.</p></div>
+          <div class="quote r" style="--d:2">"The only way to do great work is to love what you do."<span>— Steve Jobs</span></div>
+          <p class="lede r" style="--d:3">Our culture shows up in six everyday behaviours:</p>
+          <div class="grid g3" style="margin-top:20px">
+            <div class="card r" style="--d:3"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Ownership</h3><p>The task assigned to you is yours. You are its sole torchbearer — see it through to the best of your ability.</p></div>
+            <div class="card r" style="--d:4"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Accountability</h3><p>Finishing a task is admirable — but is it your best work? Always aim for the best possible outcome.</p></div>
+            <div class="card r" style="--d:5"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div><h3>Collaboration</h3><p>In our matrix structure we keep communication open and work toward the common goal — without red tape or unnecessary approvals. Work should flow seamlessly.</p></div>
+            <div class="card r" style="--d:6"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div><h3>Continuous Learning</h3><p>Learn skills and technologies that improve how we work. Every employee can grow beyond today's limits — and learning isn't limited to your current role.</p></div>
+            <div class="card r" style="--d:7"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h3>Strategy Focus</h3><p>As a captive delivery centre for a US lending company, our goals align with our parent's: to lead the industry while staying a disruptive innovator.</p></div>
+            <div class="card r" style="--d:8"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4M8 11c-1.7 0-3-1.6-3-3.5S6.3 4 8 4m4 7a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm0 0c-3.5 0-6 2-6 5h12c0-3-2.5-5-6-5Z"/></svg></div><h3>Respect</h3><p>An inclusive ecosystem that values every insight. There are no bad ideas. Whoever you are, if you live our values and respect one another, you'll thrive here.</p></div>
           </div>
         </div>
       </section>
@@ -399,25 +417,28 @@
           <div class="eyebrow r" style="--d:0"><span class="n">03</span> Stage Three</div>
           <h2 class="title r" style="--d:1">Know Your Team</h2>
           <div class="divider r" style="--d:2"></div>
-          <p class="lede r" style="--d:2">We work in a matrix model — so knowing how the team connects is key to moving fast without friction.</p>
-          <div class="grid g2" style="margin-top:28px">
+          <p class="lede r" style="--d:2">We work in a matrix structure, so knowing how the team connects is key to moving fast without friction.</p>
+          <div class="grid g2" style="margin-top:26px">
             <div class="card accent r" style="--d:3">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="5" rx="1"/><path d="M12 8v4M6 20v-3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><rect x="3" y="20" width="6" height="2" rx="1"/><rect x="15" y="20" width="6" height="2" rx="1"/></svg></div>
               <h3>Team Orientation</h3>
-              <ul class="list" style="margin-top:12px">
-                <li>Organizational structure &amp; reporting lines — where you sit, and who your line and functional managers are.</li>
-                <li>Team objectives and priorities for the period ahead.</li>
-                <li>Key stakeholders — the people and departments you'll work and collaborate with.</li>
-                <li>Cross-functional dependencies that connect your work to others.</li>
+              <p style="margin-bottom:12px">Here you'll learn the organization and reporting structure:</p>
+              <ul class="list">
+                <li>Where you sit in the organization chart.</li>
+                <li>The difference between your line manager and your functional manager.</li>
+                <li>Who your reporting manager is — and who else can assign you work.</li>
+                <li>Who your key stakeholders are: the people you'll work and collaborate with most.</li>
+                <li>Your cross-functional dependencies — the stakeholders and departments you'll work with.</li>
               </ul>
             </div>
             <div class="card accent r" style="--d:4">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
               <h3>Team Expectations</h3>
-              <ul class="list sky" style="margin-top:12px">
-                <li><strong>Communication</strong> — be proactive, give regular updates, and escalate early.</li>
-                <li><strong>Collaboration</strong> — support one another and share knowledge openly.</li>
-                <li><strong>Problem Solving</strong> — focus on solutions, and prevent problems from recurring.</li>
+              <p style="margin-bottom:12px">Four things we count on from everyone:</p>
+              <ul class="list sky">
+                <li><strong>Communication</strong> — communicate proactively and share regular updates.</li>
+                <li><strong>Collaboration</strong> — support one another and share knowledge and skills that make work flow better.</li>
+                <li><strong>Problem Solving</strong> — focus on solutions, not problems; when an issue arises, find a way to stop it recurring.</li>
                 <li><strong>Professionalism</strong> — act with integrity, be reliable, and respect each other.</li>
               </ul>
             </div>
@@ -432,20 +453,20 @@
           <h2 class="title r" style="--d:1">Know Your Work</h2>
           <div class="divider r" style="--d:2"></div>
           <p class="lede r" style="--d:2">Every employee should clearly understand five things about their role:</p>
-          <div class="grid g4 r" style="--d:3;margin-top:8px;grid-template-columns:repeat(5,1fr)">
-            <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><h4 style="color:var(--navy)">Role Purpose</h4></div>
-            <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h4 style="color:var(--navy)">Key Responsibilities</h4></div>
-            <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h4 style="color:var(--navy)">Deliverables</h4></div>
-            <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h4 style="color:var(--navy)">Performance Expectations</h4></div>
-            <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><h4 style="color:var(--navy)">Success Measures</h4></div>
+          <div class="grid g5 r" style="--d:3;margin-top:8px">
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><h4 style="color:var(--navy)">Role Purpose</h4><p>What we hired you for.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h4 style="color:var(--navy)">Key Responsibilities</h4><p>The activities you're responsible for.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h4 style="color:var(--navy)">Deliverables</h4><p>What we expect you to produce.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h4 style="color:var(--navy)">Performance Expectations</h4><p>The bar set at hiring — and whether you're meeting or exceeding it.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><h4 style="color:var(--navy)">Success Measures</h4><p>Clearly defined KRAs and KPIs.</p></div>
           </div>
 
           <div class="section-label r" style="--d:4">Work Expectations</div>
           <div class="grid g4 r" style="--d:5">
-            <div class="card accent"><h4>Quality</h4><p>Deliver accurate, high-quality work. Always ask: is this my best?</p></div>
-            <div class="card accent"><h4>Timeliness (TAT)</h4><p>Meet agreed timelines and share your work within the timeframe.</p></div>
-            <div class="card accent"><h4>Ownership</h4><p>Take initiative and drive every assigned task to completion.</p></div>
-            <div class="card accent"><h4>Continuous Improvement</h4><p>Look for opportunities to improve processes wherever you can.</p></div>
+            <div class="card accent"><h4>Quality</h4><p>Is the output you share your best work? Deliver accurate, high-quality results.</p></div>
+            <div class="card accent"><h4>Turnaround Time (TAT)</h4><p>Share your work within the agreed timeframe.</p></div>
+            <div class="card accent"><h4>Ownership</h4><p>Take responsibility for delivering the tasks assigned to you.</p></div>
+            <div class="card accent"><h4>Continuous Improvement</h4><p>Always look for processes you can improve.</p></div>
           </div>
         </div>
       </section>
@@ -456,22 +477,22 @@
           <div class="eyebrow r" style="--d:0"><span class="n">05</span> Stage Five</div>
           <h2 class="title r" style="--d:1">How We Measure Success</h2>
           <div class="divider r" style="--d:2"></div>
-          <p class="lede r" style="--d:2">Success works at three levels — and they reinforce each other.</p>
-          <div class="grid g3" style="margin-top:28px">
+          <p class="lede r" style="--d:2">Success works at three levels — and they reinforce one another.</p>
+          <div class="grid g3" style="margin-top:26px">
             <div class="card bar r" style="--d:3">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div>
               <h3>Individual</h3>
-              <ul class="list" style="margin-top:12px"><li>KRAs &amp; KPIs</li><li>Quality of deliverables</li><li>Collaboration &amp; teamwork</li><li>Alignment with values</li></ul>
+              <ul class="list" style="margin-top:12px"><li>KRAs &amp; KPIs</li><li>Quality of work</li><li>Collaboration &amp; teamwork</li><li>Alignment with values</li></ul>
             </div>
             <div class="card bar r" style="--d:4">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div>
               <h3>Team</h3>
-              <ul class="list sky" style="margin-top:12px"><li>Delivery excellence</li><li>Process efficiency</li><li>Innovation initiatives</li></ul>
+              <ul class="list sky" style="margin-top:12px"><li>Delivery excellence</li><li>Process efficiency</li><li>Innovative initiatives</li></ul>
             </div>
             <div class="card bar r" style="--d:5">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div>
               <h3>Organization</h3>
-              <ul class="list" style="margin-top:12px"><li>Portfolio growth</li><li>Operational excellence</li></ul>
+              <ul class="list" style="margin-top:12px"><li>Operational excellence</li><li>Portfolio growth</li></ul>
             </div>
           </div>
         </div>
@@ -483,25 +504,25 @@
           <div class="eyebrow r" style="--d:0"><span class="n">06</span> Stage Six</div>
           <h2 class="title r" style="--d:1">Your 30 · 60 · 90 Day Journey</h2>
           <div class="divider r" style="--d:2"></div>
-          <p class="lede r" style="--d:2">Probation is a two-way fit check — for us to support your learning, and for you to settle into our business, people and work.</p>
-          <div class="grid g3" style="margin-top:28px">
+          <p class="lede r" style="--d:2">Your probation period is a two-way fit check: our chance to see whether our culture works for you, and yours to do the same — all while you learn our business, processes and scope of work. We believe the move from candidate to employee is the most important part of your experience, so we make sure the right tools, knowledge and people are there for you from day one.</p>
+          <div class="grid g3" style="margin-top:26px">
             <div class="card phase r" style="--d:3">
               <span class="tag">First 30 Days</span>
               <h3>🎓 Learn</h3>
-              <ul class="list"><li>Company &amp; culture overview</li><li>Team structure &amp; reporting</li><li>Role &amp; process understanding</li><li>Tools &amp; systems onboarding</li></ul>
-              <div class="outcome">Outcome: a strong understanding of the organization &amp; role expectations.</div>
+              <ul class="list"><li>Company &amp; culture</li><li>Team structure &amp; reporting</li><li>Role &amp; process understanding</li><li>Tools &amp; systems</li></ul>
+              <div class="outcome">Outcome: a strong understanding of the organization and your role.</div>
             </div>
             <div class="card phase r" style="--d:4">
               <span class="tag">Days 31 – 60</span>
               <h3>🚀 Contribute</h3>
               <ul class="list sky"><li>Independent task execution</li><li>Team collaboration</li><li>Process adherence</li><li>Skill development</li></ul>
-              <div class="outcome">Outcome: ability to contribute effectively with limited supervision.</div>
+              <div class="outcome">Outcome: the ability to contribute effectively with limited supervision.</div>
             </div>
             <div class="card phase r" style="--d:5">
               <span class="tag">Days 61 – 90</span>
               <h3>🏆 Own</h3>
-              <ul class="list"><li>Full ownership of deliverables</li><li>Performance delivery</li><li>Stakeholder management</li></ul>
-              <div class="outcome">Outcome: consistent delivery and alignment with company culture.</div>
+              <ul class="list"><li>Full task ownership</li><li>Performance delivery</li><li>Stakeholder management</li></ul>
+              <div class="outcome">Outcome: consistent delivery and alignment with our culture.</div>
             </div>
           </div>
         </div>
@@ -517,12 +538,14 @@
             <div class="soon-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
             <span class="badge">Coming Soon</span>
             <h2>This chapter is on its way</h2>
-            <p>The Brand Ambassador program shows how every employee builds our brand through daily actions, communication and performance. We're putting the finishing touches on it.</p>
+            <p>Like every company, we believe our employees are our greatest asset — and we want you to be a champion of who we are and what we stand for. This section will show how you build our brand through your everyday actions. We're putting the finishing touches on it.</p>
             <div class="preview">
-              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Live the company values</span>
+              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Live our company values</span>
               <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Demonstrate professionalism</span>
+              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Deliver quality work</span>
               <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Support your colleagues</span>
-              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Continuously improve</span>
+              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Focus on company success</span>
+              <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Improve continuously</span>
             </div>
           </div>
         </div>
@@ -531,12 +554,12 @@
       <!-- ===== Scene 8 — Closing ===== -->
       <section class="scene close" id="scene-8">
         <div class="scene-inner">
-          <div class="close-mark r" style="--d:0">Together we build</div>
+          <div class="close-mark r" style="--d:0">Your journey starts today</div>
           <h1 class="close r" style="--d:1">Welcome Aboard.<br>You're part of something great.</h1>
           <div class="vline r" style="--d:2">
-            <span>Innovation</span><span>Transparency</span><span>Adaptability</span><span>Impact</span>
+            <span>Innovation</span><span>Adaptability</span><span>Impact</span><span>Transparency</span>
           </div>
-          <p class="r" style="--d:3">When employees understand the company, embrace the culture, collaborate with their teams, and take ownership of their work — they become powerful contributors to our success. Your journey starts today.</p>
+          <p class="r" style="--d:3">When you understand the company, embrace the culture, collaborate with your team and take ownership of your work, you become a powerful contributor to our success — and a true champion of who we are.</p>
         </div>
       </section>
 
@@ -563,11 +586,10 @@
 
 <script>
 (function(){
-  // Stage labels for the rail/counter. Index maps to scene id.
   var STAGES = [
     {label:"Welcome", short:"Welcome"},
     {label:"Know Your Company", short:"Company"},
-    {label:"Know Our Culture", short:"Culture"},
+    {label:"Know Your Culture", short:"Culture"},
     {label:"Know Your Team", short:"Team"},
     {label:"Know Your Work", short:"Work"},
     {label:"Measure Success", short:"Success"},
@@ -587,7 +609,6 @@
   var mbar    = document.getElementById('mbar');
   var mlabel  = document.getElementById('mlabel');
 
-  // Build the rail — show the 7 content stages (indexes 1..7)
   for(var i=1;i<=7;i++){
     (function(idx){
       var li = document.createElement('li');
@@ -606,7 +627,6 @@
     var active = document.getElementById('scene-'+current);
     if(active) active.scrollTop = 0;
 
-    // rail state
     stepEls.forEach(function(el){
       var t = parseInt(el.dataset.target,10);
       el.classList.toggle('active', t===current);
@@ -614,20 +634,18 @@
       el.classList.toggle('locked', !!STAGES[t].locked && t!==current);
     });
 
-    // counter + progress
     counter.textContent = STAGES[current].label;
     var pct = TOTAL>1 ? Math.round((current/(TOTAL-1))*100) : 0;
     progress.style.width = pct+'%';
     mbar.style.width = pct+'%';
     mlabel.textContent = STAGES[current].short;
 
-    // buttons
     backBtn.disabled = (current===0);
     if(current===0){
       nextBtn.innerHTML = 'Begin onboarding <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>';
-    } else if(current===TOTAL-2){ // last content stage (Brand Ambassador)
+    } else if(current===TOTAL-2){
       nextBtn.innerHTML = 'Finish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>';
-    } else if(current===TOTAL-1){ // closing
+    } else if(current===TOTAL-1){
       nextBtn.innerHTML = 'Restart <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg>';
     } else {
       nextBtn.innerHTML = 'Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>';
@@ -636,10 +654,9 @@
 
   function go(i){
     if(i<0) i=0;
-    if(i>TOTAL-1){ i=0; } // wrap from restart
+    if(i>TOTAL-1){ i=0; }
     current = i;
     render();
-    // keep mobile view at top of stage
     if(window.matchMedia('(max-width:880px)').matches){
       window.scrollTo({top:0, behavior:'smooth'});
     }
