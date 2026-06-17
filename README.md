@@ -21,10 +21,14 @@ crisp at any size, load instantly, and are easy to edit.
 6. Your 30-60-90 Day Journey
 7. Become a Brand Ambassador — *Coming Soon*
 
-**HR Policies**
+**HR Policies** (a sub-category after Ambassador — shown as readable reference documents, **not** videos)
 8. Leave Policy — April 2026 (full tables: changes, 27-day breakup, rules, new policies, specific leaves, WFH, conditions)
 9. Code of Conduct (sections 1.1.1 – 1.1.9, including disciplinary measures)
 10. Social Media Policy (scope, principles, acceptable & prohibited use, recruitment, AI content, reporting, liability)
+
+The onboarding parts (0–7) play as videos with transport controls. The HR Policy pages are
+static documents you read and scroll at your own pace — they sit in the same Next/Back
+workflow and are grouped under "HR Policies" in the journey rail.
 
 11. Welcome Aboard (closing)
 

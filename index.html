@@ -243,6 +243,14 @@
     *{animation:none !important;transition:none !important;}
     .beat{opacity:1;transform:none;} .beat .list li{opacity:1;} .ambient{display:none;}
   }
+  .refpill{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.4px;padding:5px 12px;border-radius:999px;margin-bottom:13px;}
+  .refpill svg{width:13px;height:13px;}
+  .scene.doc .vstage{padding-bottom:34px;}
+  .scene.doc .beat{opacity:1 !important;transform:none !important;}
+  .scene.doc .beat .list li{opacity:1 !important;animation:none !important;}
+  .step.group-label{cursor:default;pointer-events:none;color:#7196b6;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:14px 9px 5px;}
+  .step.group-label .dot{display:none;} .step.group-label::before{display:none;}
+  .step.endgroup::before{display:none;}
 </style>
 </head>
 <body>
@@ -445,9 +453,10 @@
       </section>
 
       <!-- 8 — Leave Policy -->
-      <section class="scene" id="scene-8" data-duration="23">
+      <section class="scene doc" id="scene-8">
         <div class="player"><div class="vstage"><div class="vinner">
-          <div class="eyebrow beat" data-in="0.2"><span class="n">08</span> HR Policy · Stage Eight</div>
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">8</span> HR Policies</div>
           <h2 class="title beat" data-in="0.6">Leave Policy — April 2026</h2>
           <div class="divider beat" data-in="1.0"></div>
           <p class="lede beat" data-in="1.4">This policy sets out the revised leave structure effective <strong>April 2026</strong>. The objective is to ensure compliance, clarity and better employee flexibility, while maintaining operational efficiency.</p>
@@ -508,9 +517,10 @@
       </section>
 
       <!-- 9 — Code of Conduct -->
-      <section class="scene" id="scene-9" data-duration="15">
+      <section class="scene doc" id="scene-9">
         <div class="player"><div class="vstage"><div class="vinner">
-          <div class="eyebrow beat" data-in="0.2"><span class="n">09</span> HR Policy · Stage Nine</div>
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">9</span> HR Policies</div>
           <h2 class="title beat" data-in="0.6">Code of Conduct</h2>
           <div class="divider beat" data-in="1.0"></div>
           <p class="lede beat" data-in="1.4">This policy outlines the standards of professional behaviour, integrity and ethical conduct that all employees must uphold while representing the Company.</p>
@@ -530,9 +540,10 @@
       </section>
 
       <!-- 10 — Social Media Policy -->
-      <section class="scene" id="scene-10" data-duration="22">
+      <section class="scene doc" id="scene-10">
         <div class="player"><div class="vstage"><div class="vinner">
-          <div class="eyebrow beat" data-in="0.2"><span class="n">10</span> HR Policy · Stage Ten</div>
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">10</span> HR Policies</div>
           <h2 class="title beat" data-in="0.6">Social Media Policy</h2>
           <div class="divider beat" data-in="1.0"></div>
           <p class="lede beat" data-in="1.4">Social media is a powerful tool for communication, networking, professional development and employer branding. This policy protects TekFriday's reputation, brand and confidential information, and helps you become a positive ambassador of the brand. It should be read alongside the Code of Conduct, Information Security, Data Privacy, Confidentiality and Employment agreements.</p>
@@ -640,10 +651,18 @@
   var states=scenes.map(function(scene,idx){
     var player=scene.querySelector('.player');
     var vstage=scene.querySelector('.vstage');
+    var isDoc=scene.classList.contains('doc');
     var amb=document.createElement('div');
     amb.className='ambient';
     amb.innerHTML='<div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div><div class="ring"></div>';
     player.insertBefore(amb,player.firstChild);
+
+    var s={idx:idx,el:scene,player:player,vstage:vstage,isDoc:isDoc,
+      dur:parseFloat(scene.dataset.duration||'10'),
+      beats:Array.prototype.slice.call(scene.querySelectorAll('.beat')),
+      t:0,playing:false,ended:false,_lastT:0};
+    if(isDoc) return s;  // document pages have no video controls
+
     var overlay=document.createElement('button');
     overlay.className='play-overlay'; overlay.setAttribute('aria-label','Play');
     overlay.innerHTML='<span class="circ">'+PLAY+'</span>';
@@ -655,13 +674,10 @@
       '<span class="time">0:00 / 0:00</span>'+
       '<button class="tp-btn tp-replay" aria-label="Replay">'+REPLAY+'</button>';
     player.appendChild(tp);
-    var s={idx:idx,el:scene,player:player,vstage:vstage,
-      dur:parseFloat(scene.dataset.duration||'10'),
-      beats:Array.prototype.slice.call(scene.querySelectorAll('.beat')),
-      t:0,playing:false,ended:false,_lastT:0,
-      overlay:overlay,playBtn:tp.querySelector('.tp-play'),
-      fill:tp.querySelector('.fill'),knob:tp.querySelector('.knob'),
-      time:tp.querySelector('.time'),scrub:tp.querySelector('.scrub')};
+    s.overlay=overlay; s.playBtn=tp.querySelector('.tp-play');
+    s.fill=tp.querySelector('.fill'); s.knob=tp.querySelector('.knob');
+    s.time=tp.querySelector('.time'); s.scrub=tp.querySelector('.scrub');
+
     s.playBtn.addEventListener('click',function(){togglePlay(s);});
     overlay.addEventListener('click',function(){ if(s.ended) replay(s); else togglePlay(s); });
     tp.querySelector('.tp-replay').addEventListener('click',function(){replay(s);});
@@ -708,28 +724,41 @@
   var raf=null,last=0;
   function loop(ts){
     var s=states[current];
-    if(s&&s.playing){ if(!last) last=ts; var dt=(ts-last)/1000; last=ts; setTime(s,s.t+dt,false); if(s.t>=s.dur) markEnded(s); }
+    if(s&&!s.isDoc&&s.playing){ if(!last) last=ts; var dt=(ts-last)/1000; last=ts; setTime(s,s.t+dt,false); if(s.t>=s.dur) markEnded(s); }
     else last=ts;
     raf=requestAnimationFrame(loop);
   }
   function play(s){s.playing=true;s.ended=false;last=0;s.player.classList.add('is-playing');s.overlay.classList.remove('show');s.playBtn.innerHTML=PAUSE;setNextPulse(false);}
-  function pauseInternal(s){s.playing=false;s.player.classList.remove('is-playing');s.playBtn.innerHTML=PLAY;}
+  function pauseInternal(s){s.playing=false;s.player.classList.remove('is-playing');if(s.playBtn)s.playBtn.innerHTML=PLAY;}
   function pause(s){pauseInternal(s);s.overlay.querySelector('.circ').innerHTML=PLAY;s.overlay.classList.add('show');}
-  function togglePlay(s){if(s.ended){replay(s);return;}if(s.playing)pause(s);else play(s);}
+  function togglePlay(s){if(!s||s.isDoc)return;if(s.ended){replay(s);return;}if(s.playing)pause(s);else play(s);}
   function replay(s){setTime(s,0,true);s.vstage.scrollTop=0;play(s);}
   function markEnded(s){s.t=s.dur;paint(s);applyBeats(s,false);s.playing=false;s.ended=true;s.player.classList.remove('is-playing');s.playBtn.innerHTML=REPLAY;s.overlay.querySelector('.circ').innerHTML=REPLAY;s.overlay.classList.add('show');if(s.idx===current)setNextPulse(true);}
 
-  function startScene(i){var s=states[i];s.vstage.scrollTop=0;if(reduced){setTime(s,s.dur,true);s.ended=true;s.playBtn.innerHTML=REPLAY;s.overlay.classList.remove('show');return;}setTime(s,0,true);play(s);}
-  function stopScene(i){var s=states[i];pauseInternal(s);s.ended=false;setTime(s,0,true);s.vstage.scrollTop=0;s.overlay.classList.remove('show');}
+  function startScene(i){
+    var s=states[i]; s.vstage.scrollTop=0;
+    if(s.isDoc) return;                 // static document: content shown via CSS
+    if(reduced){ setTime(s,s.dur,true); s.ended=true; s.playBtn.innerHTML=REPLAY; s.overlay.classList.remove('show'); return; }
+    setTime(s,0,true); play(s);
+  }
+  function stopScene(i){
+    var s=states[i];
+    if(s.isDoc){ s.vstage.scrollTop=0; return; }
+    pauseInternal(s); s.ended=false; setTime(s,0,true); s.vstage.scrollTop=0; s.overlay.classList.remove('show');
+  }
 
-  for(var i=1;i<=10;i++){(function(idx){
-    var li=document.createElement('li'); li.className='step'+(STAGES[idx].hr&&idx===8?' sep':''); li.dataset.target=idx;
-    var pin=STAGES[idx].locked?'<span class="pin">🔒</span>':'';
-    li.innerHTML='<span class="dot">'+idx+'</span><span>'+STAGES[idx].short+'</span>'+pin;
-    li.addEventListener('click',function(){go(idx);});
-    stepsEl.appendChild(li);
-  })(i);}
-  var stepEls=stepsEl.querySelectorAll('.step');
+  // rail with "HR Policies" sub-category
+  for(var i=1;i<=10;i++){
+    if(i===8){ var gl=document.createElement('li'); gl.className='step group-label'; gl.textContent='HR Policies'; stepsEl.appendChild(gl); }
+    (function(idx){
+      var li=document.createElement('li'); li.className='step'+(idx===7?' endgroup':'')+(idx>=8?' hrpol':''); li.dataset.target=idx;
+      var pin=STAGES[idx].locked?'<span class="pin">🔒</span>':'';
+      li.innerHTML='<span class="dot">'+idx+'</span><span>'+STAGES[idx].short+'</span>'+pin;
+      li.addEventListener('click',function(){go(idx);});
+      stepsEl.appendChild(li);
+    })(i);
+  }
+  var stepEls=stepsEl.querySelectorAll('.step[data-target]');
   function setNextPulse(on){nextBtn.classList.toggle('pulse',!!on);}
 
   function render(){
@@ -755,7 +784,7 @@
     if(e.target&&/^(INPUT|TEXTAREA)$/.test(e.target.tagName))return;
     if(e.key==='ArrowRight')nextBtn.click();
     else if(e.key==='ArrowLeft'&&!backBtn.disabled)backBtn.click();
-    else if(e.key===' '){e.preventDefault();togglePlay(states[current]);}
+    else if(e.key===' '){var s=states[current]; if(s&&!s.isDoc){e.preventDefault();togglePlay(s);}}
   });
   raf=requestAnimationFrame(loop);
   render();
