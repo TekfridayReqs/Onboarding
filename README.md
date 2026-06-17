@@ -1,18 +1,17 @@
 # TekFriday — Employee Onboarding (Video Journey)
 
-An interactive onboarding experience where **each part plays as its own video**. When you
-open a part, its video sequence plays automatically — timed reveals, an animated backdrop,
-and a real video transport bar (play/pause, scrubber, elapsed/total time, replay). The
-**Next** button carries you to the next part, whose video then plays in turn. Part 7 (Brand
-Ambassador) is intentionally locked as **Coming Soon**.
+An interactive onboarding experience where **each part plays as its own video**. Open a
+part and its video sequence plays automatically — timed reveals over an animated backdrop,
+with a real transport bar (play/pause, scrubber, elapsed/total time, replay). The **Next**
+button carries you to the next part, whose video then plays in turn.
 
 Everything is one self-contained `index.html` — no build step and no external media files.
 The "videos" are animated motion-graphic sequences rendered in the browser, so they stay
-crisp at any size, load instantly, and are easy to edit. (If you later have real `.mp4`
-files, they can be dropped into the same per-page player.)
+crisp at any size, load instantly, and are easy to edit.
 
 ## Parts (each is a page-wise video)
 
+**Onboarding**
 0. Welcome
 1. Know Your Company
 2. Know Your Culture
@@ -21,33 +20,37 @@ files, they can be dropped into the same per-page player.)
 5. How We Measure Success
 6. Your 30-60-90 Day Journey
 7. Become a Brand Ambassador — *Coming Soon*
-8. Welcome Aboard (closing)
+
+**HR Policies**
+8. Leave Policy — April 2026 (full tables: changes, 27-day breakup, rules, new policies, specific leaves, WFH, conditions)
+9. Code of Conduct (sections 1.1.1 – 1.1.9, including disciplinary measures)
+10. Social Media Policy (scope, principles, acceptable & prohibited use, recruitment, AI content, reporting, liability)
+
+11. Welcome Aboard (closing)
 
 ### Controls
 - **Per-video:** play/pause, scrub bar (click or drag), replay, and Spacebar to toggle play.
-- **Between pages:** Next / Back buttons, the journey rail on the left, or the ← / → keys.
-- A video autoplays when its page opens and resets when you leave; when a video finishes,
-  the Next button gently pulses.
-- Honors `prefers-reduced-motion`: motion is disabled and all content shows at once.
+- **Between pages:** Next / Back, the journey rail on the left, or the ← / → keys.
+- A video autoplays when its page opens and resets when you leave; when one finishes, the
+  Next button gently pulses. Honors `prefers-reduced-motion`.
 
 ## Publish on GitHub Pages
 
 1. Create a new repository on GitHub (e.g. `tekfriday-onboarding`).
-2. Push these files (a repo with commits is already initialised in this folder):
+2. Push these files (a repo with commits is already initialised here):
 
    ```bash
    git remote add origin https://github.com/<your-username>/<your-repo>.git
    git push -u origin main
    ```
 
-3. In the repo, go to **Settings → Pages**.
-4. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-5. Select branch **main**, folder **/ (root)**, then **Save**.
-6. Your site goes live at `https://<your-username>.github.io/<your-repo>/`.
+3. In the repo: **Settings → Pages → Build and deployment → Source → Deploy from a branch**,
+   branch **main**, folder **/ (root)**, **Save**.
+4. Your site goes live at `https://<your-username>.github.io/<your-repo>/`.
 
 ## Editing
 
-- **Content** lives in the `<section class="scene">` blocks. Each animated element is a
-  `.beat` with a `data-in="<seconds>"` attribute that sets when it appears.
-- **Video length** for a part is the `data-duration="<seconds>"` on its `<section>`.
+- **Content** lives in each `<section class="scene">` block. Every animated element is a
+  `.beat` with `data-in="<seconds>"` setting when it appears.
+- **Video length** for a part is `data-duration="<seconds>"` on its `<section>`.
 - **Colors, fonts, spacing** are CSS variables in the `:root` block at the top.

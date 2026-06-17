@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TekFriday — Employee Onboarding</title>
-<meta name="description" content="TekFriday Processing Solution — onboarding & orientation, presented as a page-by-page video journey." />
+<meta name="description" content="TekFriday Processing Solution — onboarding, culture, and HR policy video journey." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
     --navy:#173E5C; --navy-2:#1B4F72; --blue:#2E86C1; --blue-bright:#3F8FD4;
     --sky:#5DADE2; --sky-soft:#AED6F1; --surface:#EAF3FB; --surface-2:#DCEBF8;
     --page:#F4F9FD; --gold:#F2B705; --ink:#2C3E50; --ink-soft:#5B6B7B;
-    --line:#D6E6F5; --white:#FFFFFF;
+    --line:#D6E6F5; --white:#FFFFFF; --deny:#D8584C; --deny-soft:#FBEAE8;
     --shadow:0 18px 40px -22px rgba(23,62,92,.45);
     --shadow-sm:0 8px 20px -14px rgba(23,62,92,.5);
     --radius:18px; --rail-w:248px; --ease:cubic-bezier(.22,.61,.36,1);
@@ -26,36 +26,37 @@
   .app{position:fixed;inset:0;display:grid;grid-template-columns:var(--rail-w) 1fr;grid-template-rows:6px 1fr;}
   .band{grid-column:1 / -1;background:linear-gradient(90deg,var(--sky) 0%,var(--sky-soft) 60%,var(--surface) 100%);}
 
-  /* ---------- Journey rail ---------- */
-  .rail{grid-row:2;background:linear-gradient(180deg,#0f3050 0%,var(--navy) 55%,#103452 100%);color:#cfe2f3;padding:26px 22px 22px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  /* rail */
+  .rail{grid-row:2;background:linear-gradient(180deg,#0f3050 0%,var(--navy) 55%,#103452 100%);color:#cfe2f3;padding:22px 20px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
   .rail::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(93,173,226,.32),transparent 70%);}
-  .logo{display:flex;align-items:center;gap:11px;margin-bottom:28px;}
+  .logo{display:flex;align-items:center;gap:11px;margin-bottom:20px;}
   .logo .tile{width:38px;height:38px;border-radius:10px;flex:none;background:linear-gradient(135deg,var(--sky),var(--blue));display:grid;place-items:center;color:#fff;font-family:"Sora";font-weight:800;font-size:15px;box-shadow:0 6px 14px -4px rgba(46,134,193,.7);}
   .logo b{font-family:"Sora";font-weight:700;color:#fff;font-size:16.5px;letter-spacing:.2px;display:block;line-height:1}
   .logo span{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#7fb4dc;}
-  .rail-title{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#7fb4dc;margin-bottom:14px;}
-  .steps{list-style:none;display:flex;flex-direction:column;gap:1px;flex:1;position:relative;z-index:1;}
-  .step{display:flex;align-items:center;gap:13px;padding:8px 10px;border-radius:11px;cursor:pointer;font-size:13.5px;font-weight:500;color:#b6d2ea;transition:background .25s,color .25s;position:relative;}
-  .step .dot{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;border:2px solid #45688a;font-size:11px;font-weight:700;color:#9cc0e0;transition:all .3s var(--ease);background:transparent;font-family:"Sora";}
-  .step:not(:last-child)::before{content:"";position:absolute;left:21.5px;top:32px;height:calc(100% - 22px);width:2px;background:#2c4d6e;z-index:0;transition:background .35s;}
+  .rail-title{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#7fb4dc;margin-bottom:10px;}
+  .steps{list-style:none;display:flex;flex-direction:column;gap:0;flex:1;position:relative;z-index:1;overflow-y:auto;scrollbar-width:none;}
+  .steps::-webkit-scrollbar{display:none;}
+  .step{display:flex;align-items:center;gap:12px;padding:7px 9px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:500;color:#b6d2ea;transition:background .25s,color .25s;position:relative;}
+  .step .dot{width:23px;height:23px;border-radius:50%;flex:none;display:grid;place-items:center;border:2px solid #45688a;font-size:10.5px;font-weight:700;color:#9cc0e0;transition:all .3s var(--ease);background:transparent;font-family:"Sora";}
+  .step:not(:last-child)::before{content:"";position:absolute;left:20.5px;top:30px;height:calc(100% - 20px);width:2px;background:#2c4d6e;z-index:0;transition:background .35s;}
   .step:hover{background:rgba(255,255,255,.06);color:#e6f1fb;}
   .step.done .dot{background:var(--sky);border-color:var(--sky);color:#0f3050;}
   .step.done::before{background:var(--sky);} .step.done{color:#dcecf8;}
   .step.active{background:rgba(93,173,226,.16);color:#fff;}
-  .step.active .dot{background:linear-gradient(135deg,var(--sky),var(--blue));border-color:transparent;color:#fff;box-shadow:0 0 0 4px rgba(93,173,226,.22);transform:scale(1.08);}
+  .step.active .dot{background:linear-gradient(135deg,var(--sky),var(--blue));border-color:transparent;color:#fff;box-shadow:0 0 0 4px rgba(93,173,226,.22);transform:scale(1.06);}
   .step .pin{margin-left:auto;font-size:10px;opacity:.85;}
   .step.locked{opacity:.55;}
-  .rail-foot{font-size:11px;color:#6f9cc4;line-height:1.5;border-top:1px solid #2c4d6e;padding-top:14px;margin-top:8px;position:relative;z-index:1;}
+  .step.sep{margin-top:8px;padding-top:12px;}
+  .step.sep::after{content:"HR POLICIES";position:absolute;top:-2px;left:9px;font-size:8.5px;letter-spacing:1.5px;color:#5f86aa;}
+  .rail-foot{font-size:10.5px;color:#6f9cc4;line-height:1.5;border-top:1px solid #2c4d6e;padding-top:12px;margin-top:8px;position:relative;z-index:1;}
   .rail-foot b{color:#a9cce8;font-weight:600;}
 
-  /* ---------- Stage / video players ---------- */
+  /* stage / players */
   .stage{grid-row:2;position:relative;overflow:hidden;display:flex;flex-direction:column;}
   .scenes{flex:1;position:relative;}
   .scene{position:absolute;inset:0;padding:16px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;}
   .scene.is-active{opacity:1;visibility:visible;}
-
   .player{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#ffffff 0%,#eef6fd 60%,#e4f0fb 100%);box-shadow:var(--shadow);border:1px solid var(--line);}
-  /* moving backdrop */
   .ambient{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
   .ambient .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;}
   .ambient .b1{width:340px;height:340px;left:-90px;top:-80px;background:radial-gradient(circle,rgba(93,173,226,.55),transparent 70%);animation:drift1 16s ease-in-out infinite;}
@@ -66,124 +67,137 @@
   @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,-24px)}}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  .vstage{position:absolute;inset:0;overflow-y:auto;padding:46px clamp(26px,4.5vw,68px) 84px;scrollbar-width:none;}
+  .vstage{position:absolute;inset:0;overflow-y:auto;padding:44px clamp(26px,4.5vw,64px) 84px;scrollbar-width:none;}
   .vstage::-webkit-scrollbar{display:none;}
   .vstage.center{display:flex;flex-direction:column;justify-content:center;}
-  .vinner{max-width:1000px;margin:0 auto;width:100%;position:relative;z-index:1;}
+  .vinner{max-width:1010px;margin:0 auto;width:100%;position:relative;z-index:1;}
 
-  /* beats (timeline-driven reveals) */
   .beat{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
   .beat.on{opacity:1;transform:none;}
 
-  .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:700;display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;}
+  .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:700;display:inline-flex;align-items:center;gap:9px;margin-bottom:11px;}
   .eyebrow .n{font-family:"Sora";background:var(--surface);color:var(--blue);border:1px solid var(--line);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;letter-spacing:0;}
-  h2.title{font-size:clamp(28px,3.6vw,42px);color:var(--navy);font-weight:700;line-height:1.05;letter-spacing:-.5px;}
-  .lede{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:760px;margin-top:14px;}
-  .divider{height:3px;width:64px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:3px;margin:18px 0 26px;}
-  .section-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);font-weight:700;margin:30px 0 14px;}
+  h2.title{font-size:clamp(27px,3.4vw,40px);color:var(--navy);font-weight:700;line-height:1.05;letter-spacing:-.5px;}
+  .lede{color:var(--ink-soft);font-size:15px;line-height:1.62;max-width:820px;margin-top:12px;}
+  .divider{height:3px;width:64px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:3px;margin:16px 0 24px;}
+  .section-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);font-weight:700;margin:28px 0 13px;display:flex;align-items:center;gap:10px;}
+  .section-label .sn{background:var(--navy);color:#fff;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-family:"Sora";}
 
-  .grid{display:grid;gap:18px;}
-  .g2{grid-template-columns:repeat(2,1fr);}
-  .g3{grid-template-columns:repeat(3,1fr);}
-  .g4{grid-template-columns:repeat(4,1fr);}
-  .g5{grid-template-columns:repeat(5,1fr);}
+  .grid{display:grid;gap:16px;}
+  .g2{grid-template-columns:repeat(2,1fr);} .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);} .g5{grid-template-columns:repeat(5,1fr);}
   @media(max-width:1180px){.g5{grid-template-columns:repeat(3,1fr);}}
 
-  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);position:relative;}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow-sm);position:relative;}
   .card.accent{background:rgba(234,243,251,.85);border-color:transparent;}
   .card.bar{border-top:4px solid var(--blue);}
-  .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:13px;background:linear-gradient(135deg,var(--surface),var(--surface-2));color:var(--blue);}
-  .ico svg{width:23px;height:23px;}
-  .ico.solid{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;}
-  .ico.sm{width:40px;height:40px;border-radius:11px;margin-bottom:11px;}
-  .ico.sm svg{width:21px;height:21px;}
+  .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg,var(--surface),var(--surface-2));color:var(--blue);}
+  .ico svg{width:23px;height:23px;} .ico.solid{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;}
+  .ico.sm{width:40px;height:40px;border-radius:11px;margin-bottom:10px;} .ico.sm svg{width:21px;height:21px;}
   .card h3{font-size:16px;color:var(--navy);font-weight:600;margin-bottom:6px;}
   .card h4{font-size:14.5px;color:var(--blue);font-weight:600;margin-bottom:5px;}
   .card p{font-size:13px;color:var(--ink-soft);line-height:1.55;}
 
-  .chips{display:flex;flex-wrap:wrap;gap:10px;}
-  .chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:500;color:var(--navy-2);box-shadow:var(--shadow-sm);}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--navy-2);box-shadow:var(--shadow-sm);}
+  .chip.mini{padding:6px 12px;font-size:12px;}
 
-  .story{background:rgba(234,243,251,.9);border-left:4px solid var(--sky);border-radius:0 16px 16px 0;padding:20px 24px;}
+  .story{background:rgba(234,243,251,.9);border-left:4px solid var(--sky);border-radius:0 16px 16px 0;padding:19px 23px;}
   .story .lbl{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:9px;}
-  .story p{font-size:14.5px;color:var(--ink);line-height:1.6;}
-  .stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
-  .stat{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:10px 16px;min-width:118px;box-shadow:var(--shadow-sm);}
-  .stat b{display:block;font-family:"Sora";font-size:20px;color:var(--navy);line-height:1.1;}
-  .stat span{font-size:11.5px;color:var(--ink-soft);}
+  .story p{font-size:14px;color:var(--ink);line-height:1.6;}
+  .stats{display:flex;flex-wrap:wrap;gap:11px;margin-top:15px;}
+  .stat{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:10px 15px;min-width:116px;box-shadow:var(--shadow-sm);}
+  .stat b{display:block;font-family:"Sora";font-size:19px;color:var(--navy);line-height:1.1;}
+  .stat span{font-size:11px;color:var(--ink-soft);}
 
-  .quote{background:rgba(234,243,251,.9);border-left:4px solid var(--blue);border-radius:0 14px 14px 0;padding:18px 22px;font-style:italic;color:var(--navy);font-size:16px;line-height:1.5;}
-  .quote span{display:block;font-style:normal;font-size:12.5px;color:var(--ink-soft);margin-top:8px;font-weight:600;}
+  .quote{background:rgba(234,243,251,.9);border-left:4px solid var(--blue);border-radius:0 14px 14px 0;padding:17px 21px;font-style:italic;color:var(--navy);font-size:16px;line-height:1.5;}
+  .quote span{display:block;font-style:normal;font-size:12.5px;color:var(--ink-soft);margin-top:7px;font-weight:600;}
+  .callout{background:var(--deny-soft);border-left:4px solid var(--deny);border-radius:0 14px 14px 0;padding:15px 20px;color:#7a2c24;font-size:13.5px;line-height:1.55;}
+  .callout b{color:#6a241d;}
 
-  .list{list-style:none;display:flex;flex-direction:column;gap:10px;}
-  .list li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--ink);line-height:1.45;}
-  .list li::before{content:"";width:9px;height:9px;border-radius:50%;flex:none;margin-top:5px;background:var(--blue);box-shadow:0 0 0 3px var(--surface);}
+  .list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .list li{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink);line-height:1.45;}
+  .list li::before{content:"";width:8px;height:8px;border-radius:50%;flex:none;margin-top:5px;background:var(--blue);box-shadow:0 0 0 3px var(--surface);}
   .list.sky li::before{background:var(--sky);}
-  /* staggered list items when their beat turns on */
+  .list.deny-list li::before{background:var(--deny);box-shadow:0 0 0 3px var(--deny-soft);}
+  .list.compact li{font-size:12.5px;gap:9px;}
   .beat .list li{opacity:0;}
   .beat.on .list li{animation:rise .55s var(--ease) forwards;}
-  .beat.on .list li:nth-child(1){animation-delay:.12s}
-  .beat.on .list li:nth-child(2){animation-delay:.24s}
-  .beat.on .list li:nth-child(3){animation-delay:.36s}
-  .beat.on .list li:nth-child(4){animation-delay:.48s}
-  .beat.on .list li:nth-child(5){animation-delay:.60s}
-  .beat.on .list li:nth-child(6){animation-delay:.72s}
+  .beat.on .list li:nth-child(1){animation-delay:.10s}.beat.on .list li:nth-child(2){animation-delay:.20s}
+  .beat.on .list li:nth-child(3){animation-delay:.30s}.beat.on .list li:nth-child(4){animation-delay:.40s}
+  .beat.on .list li:nth-child(5){animation-delay:.50s}.beat.on .list li:nth-child(6){animation-delay:.60s}
+  .beat.on .list li:nth-child(7){animation-delay:.70s}.beat.on .list li:nth-child(8){animation-delay:.80s}
+  .beat.on .list li:nth-child(9){animation-delay:.90s}.beat.on .list li:nth-child(10){animation-delay:1s}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
   .phase .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);font-weight:700;}
-  .phase h3{font-size:21px;margin:4px 0 13px;display:flex;align-items:center;gap:10px;}
-  .phase .outcome{font-size:12.5px;font-style:italic;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:11px;margin-top:13px;}
+  .phase h3{font-size:20px;margin:4px 0 12px;display:flex;align-items:center;gap:10px;}
+  .phase .outcome{font-size:12.5px;font-style:italic;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:11px;margin-top:12px;}
+
+  /* policy tables */
+  .tablewrap{overflow-x:auto;border-radius:14px;}
+  table.ptable{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:12.8px;box-shadow:var(--shadow-sm);min-width:520px;}
+  .ptable th{background:var(--navy);color:#fff;text-align:left;padding:10px 14px;font-family:"Sora";font-weight:600;font-size:12px;letter-spacing:.3px;}
+  .ptable td{padding:9px 14px;border-top:1px solid var(--line);color:var(--ink);vertical-align:top;line-height:1.4;}
+  .ptable tr:nth-child(even) td{background:rgba(234,243,251,.6);}
+  .ptable td .ar{color:var(--blue);font-weight:700;}
+  .ptable td b{color:var(--navy-2);}
+  .ptable .rev{color:var(--blue);font-weight:600;}
+
+  /* code-of-conduct numbered cards */
+  .coc{position:relative;padding-left:19px;}
+  .coc .num{position:absolute;left:-2px;top:-2px;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;font-family:"Sora";font-weight:700;font-size:11px;padding:4px 9px;border-radius:8px;box-shadow:var(--shadow-sm);}
+  .coc h4{margin-top:12px;color:var(--navy);font-size:14.5px;}
+  .coc.wide{grid-column:1 / -1;}
+
+  /* allow / deny styling */
+  .card.allow{border-left:4px solid var(--blue);} .card.allow h4{color:var(--blue);}
+  .card.deny{border-left:4px solid var(--deny);} .card.deny h4{color:#b23a30;}
 
   /* cover & closing */
   .cover-eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:16px;}
   .cover h1{font-size:clamp(38px,6vw,70px);line-height:.98;color:var(--navy);font-weight:800;letter-spacing:-1.5px;}
   .cover h1 em{font-style:normal;background:linear-gradient(120deg,var(--blue),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .cover .sub{font-size:18px;color:var(--ink-soft);margin:18px 0 8px;font-weight:500;}
-  .cover .tag{font-size:14.5px;color:var(--ink-soft);max-width:560px;line-height:1.55;}
-  .value-pills{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px;}
+  .cover .tag{font-size:14.5px;color:var(--ink-soft);max-width:580px;line-height:1.55;}
+  .value-pills{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px;}
   .vp{padding:9px 17px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--navy-2);background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:9px;}
   .vp .ddot{width:10px;height:10px;border-radius:50%;background:var(--blue);}
   .vp:nth-child(2) .ddot{background:var(--sky);}.vp:nth-child(3) .ddot{background:var(--blue-bright);}.vp:nth-child(4) .ddot{background:var(--gold);}
 
-  .soon{text-align:center;background:linear-gradient(180deg,rgba(234,243,251,.9),#fff);border:1px solid var(--line);border-radius:22px;padding:44px 32px;box-shadow:var(--shadow);max-width:700px;margin:0 auto;position:relative;overflow:hidden;}
-  .soon-ic{width:74px;height:74px;border-radius:21px;margin:0 auto 20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;box-shadow:0 16px 30px -14px rgba(46,134,193,.8);}
-  .soon-ic svg{width:36px;height:36px;}
-  .soon .badge{display:inline-block;background:var(--gold);color:#4a3800;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:16px;}
-  .soon h2{color:var(--navy);font-size:28px;margin-bottom:11px;}
-  .soon p{color:var(--ink-soft);font-size:14px;line-height:1.6;max-width:470px;margin:0 auto;}
-  .soon .preview{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:24px;}
-  .soon .preview .lk{background:#fff;border:1px dashed var(--line);border-radius:999px;padding:7px 14px;font-size:12.5px;color:#9db4c8;display:flex;align-items:center;gap:7px;}
-  .soon .preview .lk svg{width:13px;height:13px;}
+  .soon{text-align:center;background:linear-gradient(180deg,rgba(234,243,251,.9),#fff);border:1px solid var(--line);border-radius:22px;padding:42px 32px;box-shadow:var(--shadow);max-width:700px;margin:0 auto;position:relative;overflow:hidden;}
+  .soon-ic{width:72px;height:72px;border-radius:20px;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;box-shadow:0 16px 30px -14px rgba(46,134,193,.8);}
+  .soon-ic svg{width:34px;height:34px;}
+  .soon .badge{display:inline-block;background:var(--gold);color:#4a3800;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:15px;}
+  .soon h2{color:var(--navy);font-size:27px;margin-bottom:10px;}
+  .soon p{color:var(--ink-soft);font-size:14px;line-height:1.6;max-width:480px;margin:0 auto;}
+  .soon .preview{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px;}
+  .soon .preview .lk{background:#fff;border:1px dashed var(--line);border-radius:999px;padding:7px 13px;font-size:12px;color:#9db4c8;}
 
   .close-mark{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:14px;}
   .closeh{font-size:clamp(32px,5vw,56px);color:var(--navy);font-weight:800;line-height:1.05;letter-spacing:-1px;}
   .vline{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0;}
   .vline span{font-family:"Sora";font-weight:600;color:var(--blue);font-size:15px;display:flex;align-items:center;gap:14px;}
   .vline span::after{content:"·";color:var(--sky);} .vline span:last-child::after{content:"";}
-  .closep{color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:620px;}
+  .closep{color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:640px;}
 
-  /* ---------- Video transport (injected) ---------- */
-  .transport{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:14px;padding:13px clamp(18px,3vw,28px);
-    background:linear-gradient(0deg,rgba(255,255,255,.96),rgba(255,255,255,.7) 70%,transparent);backdrop-filter:blur(4px);}
-  .tp-btn{width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;flex:none;display:grid;place-items:center;color:#fff;
-    background:linear-gradient(135deg,var(--blue),var(--blue-bright));box-shadow:0 8px 18px -8px rgba(46,134,193,.9);transition:transform .2s;}
-  .tp-btn:hover{transform:scale(1.06);}
-  .tp-btn svg{width:18px;height:18px;}
+  /* transport */
+  .transport{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:14px;padding:13px clamp(18px,3vw,28px);background:linear-gradient(0deg,rgba(255,255,255,.96),rgba(255,255,255,.7) 70%,transparent);backdrop-filter:blur(4px);}
+  .tp-btn{width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;flex:none;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue-bright));box-shadow:0 8px 18px -8px rgba(46,134,193,.9);transition:transform .2s;}
+  .tp-btn:hover{transform:scale(1.06);} .tp-btn svg{width:18px;height:18px;}
   .tp-replay{background:#fff;color:var(--blue);border:1px solid var(--line);box-shadow:var(--shadow-sm);}
   .scrub{flex:1;height:7px;border-radius:7px;background:var(--surface-2);cursor:pointer;position:relative;}
   .scrub .fill{position:absolute;left:0;top:0;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--blue),var(--sky));width:0%;}
   .scrub .knob{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--blue);transform:translate(-50%,-50%);left:0%;box-shadow:var(--shadow-sm);}
-  .time{font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-soft);font-weight:600;white-space:nowrap;min-width:78px;text-align:right;}
+  .time{font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-soft);font-weight:600;white-space:nowrap;min-width:80px;text-align:right;}
   .play-overlay{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:rgba(244,249,253,.35);border:none;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;}
   .play-overlay.show{opacity:1;pointer-events:auto;}
   .play-overlay .circ{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));display:grid;place-items:center;color:#fff;box-shadow:0 20px 40px -16px rgba(46,134,193,.95);transition:transform .25s;}
-  .play-overlay:hover .circ{transform:scale(1.07);}
-  .play-overlay .circ svg{width:34px;height:34px;}
-  /* pause all motion when video paused */
+  .play-overlay:hover .circ{transform:scale(1.07);} .play-overlay .circ svg{width:34px;height:34px;}
   .player:not(.is-playing) .ambient *{animation-play-state:paused;}
   .player:not(.is-playing) .beat.on .list li{animation-play-state:paused;}
 
-  /* ---------- Footer nav ---------- */
+  /* footer nav */
   .nav{border-top:1px solid var(--line);background:rgba(255,255,255,.9);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px clamp(22px,5vw,72px);}
   .counter{font-size:13px;color:var(--ink-soft);font-weight:500;display:flex;align-items:center;gap:12px;}
   .counter .now{font-family:"Sora";font-weight:700;color:var(--navy);font-size:15px;}
@@ -202,7 +216,6 @@
   @keyframes pulse{0%,100%{box-shadow:0 10px 22px -10px rgba(46,134,193,.9)}50%{box-shadow:0 0 0 6px rgba(93,173,226,.28),0 10px 22px -10px rgba(46,134,193,.9)}}
   .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
 
-  /* ---------- Mobile ---------- */
   .mtop{display:none;}
   @media(max-width:880px){
     body{overflow:auto;}
@@ -217,7 +230,7 @@
     .scene{position:relative;inset:auto;opacity:1;visibility:visible;display:none;padding:12px;}
     .scene.is-active{display:block;}
     .player{height:auto;min-height:60vh;}
-    .vstage{position:relative;inset:auto;overflow:visible;padding:30px 18px 18px;}
+    .vstage{position:relative;inset:auto;overflow:visible;padding:28px 16px 16px;}
     .vstage.center{display:block;}
     .transport{position:sticky;bottom:0;}
     .g2,.g3,.g5{grid-template-columns:1fr;}
@@ -226,12 +239,9 @@
     .pgwrap small{display:none;} .progress-mini{display:none;}
   }
   @media(max-width:480px){.g4{grid-template-columns:1fr;}.btn{padding:11px 15px;}}
-
   @media(prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important;}
-    .beat{opacity:1;transform:none;}
-    .beat .list li{opacity:1;}
-    .ambient{display:none;}
+    .beat{opacity:1;transform:none;} .beat .list li{opacity:1;} .ambient{display:none;}
   }
 </style>
 </head>
@@ -254,14 +264,13 @@
 
   <main class="stage">
     <div class="scenes" id="scenes">
-
-      <!-- ===== 0 — Cover ===== -->
+      <!-- 0 — Cover -->
       <section class="scene" id="scene-0" data-duration="7">
         <div class="player"><div class="vstage center"><div class="vinner">
-          <div class="cover-eyebrow beat" data-in="0.2">Employee Onboarding &amp; Orientation</div>
+          <div class="cover-eyebrow beat" data-in="0.2">Employee Onboarding · Culture · HR Policies</div>
           <h1 class="cover beat" data-in="0.7"><span>Welcome to </span><em>TekFriday</em></h1>
-          <div class="cover sub beat" data-in="1.7">Get to know your company, your culture, your team and your work.</div>
-          <p class="cover tag beat" data-in="2.6">We are a fintech on a mission to build innovative solutions that help financial services companies across the United States grow and compete in a fast-paced world. This short video journey introduces who we are, how we work, and what your first 90 days look like.</p>
+          <div class="cover sub beat" data-in="1.7">A guided video journey through your company, your culture, your work, and the policies that protect us all.</div>
+          <p class="cover tag beat" data-in="2.6">We are a fintech on a mission to build innovative solutions that help financial services companies across the United States grow and compete in a fast-paced world. Each part below plays as a short video — watch them in order using the Next button.</p>
           <div class="value-pills beat" data-in="3.6">
             <span class="vp"><span class="ddot"></span>Innovation</span>
             <span class="vp"><span class="ddot"></span>Adaptability</span>
@@ -271,97 +280,98 @@
         </div></div></div>
       </section>
 
-      <!-- ===== 1 — Company ===== -->
-      <section class="scene" id="scene-1" data-duration="17">
+      <!-- 1 — Company -->
+      <section class="scene" id="scene-1" data-duration="18">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">01</span> Stage One</div>
           <h2 class="title beat" data-in="0.6">Know Your Company</h2>
           <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4"><strong>Who we are.</strong> TekFriday Processing Solution is a fintech company. Our mission is to build innovative solutions that help financial services companies across the US grow and compete in a fast-moving world.</p>
-          <div class="story beat" data-in="2.8" style="margin-top:22px">
-            <div class="lbl">Our Story</div>
-            <p>In an overcrowded alternative-lending market where conformity was the norm, three people set out to be a disruptive force — and a pioneer. Anil, Srinath and Mridula saw a gap in the industry and combined their ideas and ingenuity to build solutions that help alternative-lending companies lead their own segments. We began operations in 2013 with fewer than 20 people; today we are a team of more than 200.</p>
+          <p class="lede beat" data-in="1.4"><strong>Who we are.</strong> TekFriday Processing Solution is a fintech company whose mission is to build innovative solutions that help financial services companies based in the US grow and compete in this fast-paced world.</p>
+          <div class="story beat" data-in="2.8" style="margin-top:20px">
+            <div class="lbl">Our Origin Story</div>
+            <p>In an overcrowded alternative-lending market where conformity was the norm, three individuals set out to build a disruptive force — to sway away from that conformity and become a pioneer. Anil, Srinath and Mridula saw a gap in the industry and, using their collective ideation and ingenuity, built solutions that help alternative-lending entities become leaders in their own segment. We started operations in 2013 with fewer than 20 members; today we have grown into a team of more than 200. In 2019, TekFriday was acquired by Advance Financials and became a captive delivery centre.</p>
           </div>
-          <div class="stats beat" data-in="4.4">
-            <div class="stat"><b>2013</b><span>Founded</span></div>
+          <div class="stats beat" data-in="4.6">
+            <div class="stat"><b>2013</b><span>Operations began</span></div>
             <div class="stat"><b>200+</b><span>Team members today</span></div>
             <div class="stat"><b>2019</b><span>Acquired by Advance Financials</span></div>
           </div>
           <div class="section-label beat" data-in="6.0">What We Do</div>
-          <div class="chips beat" data-in="6.4">
+          <p class="lede beat" data-in="6.0" style="margin-top:0">We have built a range of solutions. These are the core services we deliver:</p>
+          <div class="chips beat" data-in="6.6" style="margin-top:12px">
             <span class="chip">Portfolio Management</span><span class="chip">Data Analytics</span><span class="chip">Transaction Processing</span>
             <span class="chip">Digital Marketing</span><span class="chip">Application Development</span><span class="chip">Production &amp; Maintenance</span>
           </div>
-          <div class="grid g2" style="margin-top:24px">
-            <div class="card accent beat" data-in="7.8"><h3>How We're Different</h3><p>We are a lean team working in an agile setup. Our people thrive in fast-paced environments, which lets us deliver every one of these services with speed and focus.</p></div>
-            <div class="card accent beat" data-in="8.5"><h3>Our Goal</h3><p>To keep innovating and building solutions that help us grow — always aligned with our business strategy — by redefining financial solutions with cutting-edge technology.</p></div>
+          <div class="grid g2" style="margin-top:22px">
+            <div class="card accent beat" data-in="8.0"><h3>How We're Different</h3><p>We are a lean team that works in an agile set-up, thriving in fast-paced environments to help deliver every one of the services above with speed and focus.</p></div>
+            <div class="card accent beat" data-in="8.7"><h3>Our Goal</h3><p>To always look to innovate and build solutions that help us grow, while aligning with our business strategy — redefining financial solutions with cutting-edge technology.</p></div>
           </div>
-          <div class="section-label beat" data-in="10.0">Our Values</div>
-          <div class="grid g4">
-            <div class="card bar beat" data-in="10.4"><h4>Innovation</h4><p>Find a better way to work on every problem — real improvements that create value, not buzzwords like "automation" or "AI".</p></div>
-            <div class="card bar beat" data-in="11.0"><h4>Adaptability</h4><p>Embrace change and stay agile. Rather than staying rigid about roles, we adapt toward a common, collective goal.</p></div>
-            <div class="card bar beat" data-in="11.6"><h4>Impact</h4><p>Focus on outcomes that create meaningful value and align with strategy. Everyone has a role in getting us there.</p></div>
-            <div class="card bar beat" data-in="12.2"><h4>Transparency &amp; Compliance</h4><p>Be respectful, honest and open. We collaborate across departments in a matrix structure — egos aside.</p></div>
+          <div class="section-label beat" data-in="10.2">Our Values</div>
+          <div class="grid g2">
+            <div class="card bar beat" data-in="10.6"><h4>Innovative</h4><p>We look at a problem or process and seek better ways to work, while creating value to help grow the business. This isn't about superficially using words like "automation" or "AI" — it's about real changes and optimizations that make a process work better or create more value.</p></div>
+            <div class="card bar beat" data-in="11.4"><h4>Adaptive</h4><p>Embrace change while remaining agile. Because we always operate in a lean and agile way, we don't expect employees to stay rigid about "roles and responsibilities" — we expect everyone to embrace change and work toward a common, collective goal.</p></div>
+            <div class="card bar beat" data-in="12.2"><h4>Impact</h4><p>Focus on business outcomes that create meaningful value while aligning with company strategy. Everyone has a role to play in getting us where we want to be, so we want you to reframe how your work and actions create impact on the business.</p></div>
+            <div class="card bar beat" data-in="13.0"><h4>Transparency &amp; Compliance</h4><p>Be respectful, honest and communicate openly. Unlike traditional organizations, we don't work in a mechanistic or flat structure — we work in a matrix model where we collaborate across departments to drive business excellence. That means keeping egos aside, working as a collective unit, and staying open to feedback.</p></div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 2 — Culture ===== -->
-      <section class="scene" id="scene-2" data-duration="14">
+      <!-- 2 — Culture -->
+      <section class="scene" id="scene-2" data-duration="15">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">02</span> Stage Two</div>
           <h2 class="title beat" data-in="0.6">Know Your Culture</h2>
           <div class="divider beat" data-in="1.0"></div>
           <div class="quote beat" data-in="1.4">"The only way to do great work is to love what you do."<span>— Steve Jobs</span></div>
-          <p class="lede beat" data-in="2.6">Our culture shows up in six everyday behaviours:</p>
-          <div class="grid g3" style="margin-top:18px">
-            <div class="card beat" data-in="3.2"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Ownership</h3><p>The task assigned to you is yours. You are its sole torchbearer — see it through to the best of your ability.</p></div>
-            <div class="card beat" data-in="4.0"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Accountability</h3><p>Finishing a task is admirable — but is it your best work? Always aim for the best possible outcome.</p></div>
-            <div class="card beat" data-in="4.8"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div><h3>Collaboration</h3><p>In our matrix structure we keep communication open and work toward the common goal — without red tape. Work should flow seamlessly.</p></div>
-            <div class="card beat" data-in="5.6"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div><h3>Continuous Learning</h3><p>Learn skills and technologies that improve how we work. Every employee can grow beyond today's limits.</p></div>
-            <div class="card beat" data-in="6.4"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h3>Strategy Focus</h3><p>As a captive delivery centre for a US lending company, our goals align with our parent's: to lead the industry while staying a disruptive innovator.</p></div>
-            <div class="card beat" data-in="7.2"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4M8 11c-1.7 0-3-1.6-3-3.5S6.3 4 8 4m4 7a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm0 0c-3.5 0-6 2-6 5h12c0-3-2.5-5-6-5Z"/></svg></div><h3>Respect</h3><p>An inclusive ecosystem that values every insight. Whoever you are, if you live our values and respect one another, you'll thrive.</p></div>
+          <p class="lede beat" data-in="2.6">Our work culture is defined by six everyday behaviours. Together they shape how decisions are made, how we collaborate, and how success is achieved.</p>
+          <div class="grid g2" style="margin-top:18px">
+            <div class="card beat" data-in="3.4"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Ownership</h3><p>Whatever task is allotted to you, you are the owner — the sole torchbearer responsible for completing it to the best of your ability.</p></div>
+            <div class="card beat" data-in="4.3"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Accountability</h3><p>Completing a task is admirable, but are you giving the best possible outcome? Always ask yourself: is this my best work?</p></div>
+            <div class="card beat" data-in="5.2"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div><h3>Collaboration</h3><p>Because we work in a matrix hierarchy, we expect open channels of communication and collective work toward the common goal — while avoiding bureaucratic red tape. Work should be seamless, without the hurdles of unwarranted approvals.</p></div>
+            <div class="card beat" data-in="6.1"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div><h3>Continuous Learning</h3><p>We encourage everyone to learn skills or technologies that improve our systems or approach. Every employee has the potential to exceed today's limits and become an asset — and this isn't restricted to your current work; it can be anything you're interested in, as long as we already use it or it would help our systems.</p></div>
+            <div class="card beat" data-in="7.0"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h3>Strategy Focus</h3><p>We are a captive delivery unit for a US lending company, so our strategy and goals align with our parent company's: to be the best in the industry while remaining a disruptive innovator. Every decision and action should align with this notion.</p></div>
+            <div class="card beat" data-in="7.9"><div class="ico solid sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4M8 11c-1.7 0-3-1.6-3-3.5S6.3 4 8 4m4 7a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm0 0c-3.5 0-6 2-6 5h12c0-3-2.5-5-6-5Z"/></svg></div><h3>Respect</h3><p>We foster an inclusive, collaborative ecosystem that values every insight and idea. There are no bad ideas — though we always check whether an idea helps us achieve our goals. We come from different backgrounds and aspirations, and together we respect each other's opinions, feedback and ways of life. Whoever you are, if you believe in our values and respect one another, you'll fare well here.</p></div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 3 — Team ===== -->
-      <section class="scene" id="scene-3" data-duration="12">
+      <!-- 3 — Team -->
+      <section class="scene" id="scene-3" data-duration="13">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">03</span> Stage Three</div>
           <h2 class="title beat" data-in="0.6">Know Your Team</h2>
           <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">We work in a matrix structure, so knowing how the team connects is key to moving fast without friction.</p>
-          <div class="grid g2" style="margin-top:24px">
+          <p class="lede beat" data-in="1.4">Because we work in a matrix structure, understanding how the team connects — and what's expected of you — is key to moving fast without friction.</p>
+          <div class="grid g2" style="margin-top:22px">
             <div class="card accent beat" data-in="2.6">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="5" rx="1"/><path d="M12 8v4M6 20v-3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><rect x="3" y="20" width="6" height="2" rx="1"/><rect x="15" y="20" width="6" height="2" rx="1"/></svg></div>
               <h3>Team Orientation</h3>
-              <p style="margin-bottom:11px;font-size:13px;color:var(--ink-soft)">Here you'll learn the organization and reporting structure:</p>
+              <p style="margin-bottom:11px;font-size:12.5px;color:var(--ink-soft)">Here you'll get to know the organization and reporting structure:</p>
               <ul class="list">
-                <li>Where you sit in the organization chart.</li>
-                <li>The difference between your line manager and your functional manager.</li>
-                <li>Who your reporting manager is — and who else can assign you work.</li>
-                <li>Who your key stakeholders are: the people you'll work with most.</li>
-                <li>Your cross-functional dependencies across departments.</li>
+                <li>Where you sit within the organization chart.</li>
+                <li>What a line manager and a functional manager are, and how they differ.</li>
+                <li>Who your reporting manager is — and who else can assign you work apart from them.</li>
+                <li>Who your key stakeholders are: the important members you'll work and collaborate with.</li>
+                <li>Your cross-functional dependencies — the stakeholders and departments you'll work with.</li>
               </ul>
             </div>
-            <div class="card accent beat" data-in="4.4">
+            <div class="card accent beat" data-in="4.6">
               <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
               <h3>Team Expectations</h3>
-              <p style="margin-bottom:11px;font-size:13px;color:var(--ink-soft)">Four things we count on from everyone:</p>
+              <p style="margin-bottom:11px;font-size:12.5px;color:var(--ink-soft)">Four things we count on from everyone:</p>
               <ul class="list sky">
-                <li><strong>Communication</strong> — communicate proactively and share regular updates.</li>
-                <li><strong>Collaboration</strong> — support one another and share knowledge that makes work flow better.</li>
-                <li><strong>Problem Solving</strong> — focus on solutions; when an issue arises, stop it recurring.</li>
-                <li><strong>Professionalism</strong> — act with integrity, be reliable, and respect each other.</li>
+                <li><strong>Communication</strong> — communicate, be proactive, and update regularly.</li>
+                <li><strong>Collaboration</strong> — support one another and share knowledge or skills that help streamline the work or process.</li>
+                <li><strong>Problem Solving</strong> — focus on solutions, not problems. Issues will arise in any application; we always look at how to make sure that kind of problem never comes up again.</li>
+                <li><strong>Professionalism</strong> — integrity in personal and professional conduct; always be reliable and respect each other.</li>
               </ul>
             </div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 4 — Work ===== -->
-      <section class="scene" id="scene-4" data-duration="13">
+      <!-- 4 — Work -->
+      <section class="scene" id="scene-4" data-duration="14">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">04</span> Stage Four</div>
           <h2 class="title beat" data-in="0.6">Know Your Work</h2>
@@ -369,29 +379,29 @@
           <p class="lede beat" data-in="1.4">Every employee should clearly understand five things about their role:</p>
           <div class="grid g5" style="margin-top:6px">
             <div class="card beat" data-in="2.2"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><h4 style="color:var(--navy)">Role Purpose</h4><p>What we hired you for.</p></div>
-            <div class="card beat" data-in="2.7"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h4 style="color:var(--navy)">Key Responsibilities</h4><p>The activities you're responsible for.</p></div>
+            <div class="card beat" data-in="2.7"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h4 style="color:var(--navy)">Key Responsibilities</h4><p>The activities you are responsible for.</p></div>
             <div class="card beat" data-in="3.2"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h4 style="color:var(--navy)">Deliverables</h4><p>What we expect you to produce.</p></div>
-            <div class="card beat" data-in="3.7"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h4 style="color:var(--navy)">Performance Expectations</h4><p>The bar set at hiring — are you meeting or exceeding it?</p></div>
-            <div class="card beat" data-in="4.2"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><h4 style="color:var(--navy)">Success Measures</h4><p>Clearly defined KRAs and KPIs.</p></div>
+            <div class="card beat" data-in="3.7"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h4 style="color:var(--navy)">Performance Expectations</h4><p>The expectations set at hiring — are you matching or exceeding them?</p></div>
+            <div class="card beat" data-in="4.2"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><h4 style="color:var(--navy)">How Success Is Measured</h4><p>Clearly defined KRAs and KPIs.</p></div>
           </div>
-          <div class="section-label beat" data-in="6.0">Work Expectations</div>
+          <div class="section-label beat" data-in="6.2">Work Expectations</div>
           <div class="grid g4">
-            <div class="card accent beat" data-in="6.4"><h4>Quality</h4><p>Is the output you share your best work? Deliver accurate, high-quality results.</p></div>
-            <div class="card accent beat" data-in="6.9"><h4>Turnaround Time (TAT)</h4><p>Share your work within the agreed timeframe.</p></div>
-            <div class="card accent beat" data-in="7.4"><h4>Ownership</h4><p>Take responsibility for delivering the tasks assigned to you.</p></div>
-            <div class="card accent beat" data-in="7.9"><h4>Continuous Improvement</h4><p>Always look for processes you can improve.</p></div>
+            <div class="card accent beat" data-in="6.6"><h4>Quality of Work</h4><p>The output you share — is it your best? Deliver accurate, high-quality work.</p></div>
+            <div class="card accent beat" data-in="7.1"><h4>Turnaround Time (TAT)</h4><p>Share your work within the agreed timeframe.</p></div>
+            <div class="card accent beat" data-in="7.6"><h4>Ownership</h4><p>Take responsibility to deliver the task assigned to you.</p></div>
+            <div class="card accent beat" data-in="8.1"><h4>Continuous Improvement</h4><p>Check whether any process improvement can be done.</p></div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 5 — Success ===== -->
+      <!-- 5 — Success -->
       <section class="scene" id="scene-5" data-duration="11">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">05</span> Stage Five</div>
           <h2 class="title beat" data-in="0.6">How We Measure Success</h2>
           <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">Success works at three levels — and they reinforce one another.</p>
-          <div class="grid g3" style="margin-top:24px">
+          <p class="lede beat" data-in="1.4">Success is measured at three levels — individual, team and organization — and each level reinforces the others.</p>
+          <div class="grid g3" style="margin-top:22px">
             <div class="card bar beat" data-in="2.4"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><h3>Individual</h3><ul class="list" style="margin-top:11px"><li>KRAs &amp; KPIs</li><li>Quality of work</li><li>Collaboration &amp; teamwork</li><li>Alignment with values</li></ul></div>
             <div class="card bar beat" data-in="3.4"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5M16 14c2.6.3 5 1.9 5 5"/></svg></div><h3>Team</h3><ul class="list sky" style="margin-top:11px"><li>Delivery excellence</li><li>Process efficiency</li><li>Innovative initiatives</li></ul></div>
             <div class="card bar beat" data-in="4.4"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8v5h-5"/></svg></div><h3>Organization</h3><ul class="list" style="margin-top:11px"><li>Operational excellence</li><li>Portfolio growth</li></ul></div>
@@ -399,22 +409,22 @@
         </div></div></div>
       </section>
 
-      <!-- ===== 6 — Journey ===== -->
+      <!-- 6 — Journey -->
       <section class="scene" id="scene-6" data-duration="13">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">06</span> Stage Six</div>
           <h2 class="title beat" data-in="0.6">Your 30 · 60 · 90 Day Journey</h2>
           <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">Your probation period is a two-way fit check: our chance to see whether our culture works for you, and yours to do the same — all while you learn our business, processes and scope of work. We believe the move from candidate to employee is the most important part of your experience, so the right tools, knowledge and people are there for you from day one.</p>
-          <div class="grid g3" style="margin-top:24px">
-            <div class="card phase beat" data-in="3.0"><span class="tag">First 30 Days</span><h3>🎓 Learn</h3><ul class="list"><li>Company &amp; culture</li><li>Team structure &amp; reporting</li><li>Role &amp; process understanding</li><li>Tools &amp; systems</li></ul><div class="outcome">Outcome: a strong understanding of the organization and your role.</div></div>
-            <div class="card phase beat" data-in="4.0"><span class="tag">Days 31 – 60</span><h3>🚀 Contribute</h3><ul class="list sky"><li>Independent task execution</li><li>Team collaboration</li><li>Process adherence</li><li>Skill development</li></ul><div class="outcome">Outcome: the ability to contribute with limited supervision.</div></div>
-            <div class="card phase beat" data-in="5.0"><span class="tag">Days 61 – 90</span><h3>🏆 Own</h3><ul class="list"><li>Full task ownership</li><li>Performance delivery</li><li>Stakeholder management</li></ul><div class="outcome">Outcome: consistent delivery and alignment with our culture.</div></div>
+          <p class="lede beat" data-in="1.4">The whole point of the probation period is to check whether our culture is compatible with you — and you with us — while you learn our business, processes and scope of work. We believe the journey from candidate experience to employee experience is the most crucial part of your time here, so we ensure the right tools and knowledge are transferred and that you become familiar with our business, work and people.</p>
+          <div class="grid g3" style="margin-top:22px">
+            <div class="card phase beat" data-in="3.2"><span class="tag">Learn · 0–30 Days</span><h3>🎓 Learn</h3><ul class="list"><li>Company culture</li><li>Team structure &amp; reporting</li><li>Role &amp; process understanding</li><li>Tools &amp; systems</li></ul><div class="outcome">Outcome: a strong understanding of the organization and role expectations.</div></div>
+            <div class="card phase beat" data-in="4.2"><span class="tag">Contribute · 30–60 Days</span><h3>🚀 Contribute</h3><ul class="list sky"><li>Independent task execution</li><li>Team collaboration</li><li>Process adherence</li><li>Skill development</li></ul><div class="outcome">Outcome: the ability to contribute effectively with limited supervision.</div></div>
+            <div class="card phase beat" data-in="5.2"><span class="tag">Own · 60–90 Days</span><h3>🏆 Own</h3><ul class="list"><li>Full task ownership</li><li>Performance delivery</li><li>Stakeholder management</li></ul><div class="outcome">Outcome: consistent delivery and alignment with company culture.</div></div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 7 — Brand Ambassador (Coming Soon) ===== -->
+      <!-- 7 — Brand Ambassador (Coming Soon) -->
       <section class="scene" id="scene-7" data-duration="9">
         <div class="player"><div class="vstage center"><div class="vinner">
           <div class="eyebrow beat" data-in="0.2"><span class="n">07</span> Stage Seven</div>
@@ -426,24 +436,159 @@
             <h2>This chapter is on its way</h2>
             <p>Like every company, we believe our employees are our greatest asset — and we want you to be a champion of who we are. This video will show how you build our brand through your everyday actions. We're putting the finishing touches on it.</p>
             <div class="preview">
-              <span class="lk">🔒 Live our company values</span>
-              <span class="lk">🔒 Demonstrate professionalism</span>
-              <span class="lk">🔒 Deliver quality work</span>
-              <span class="lk">🔒 Support your colleagues</span>
-              <span class="lk">🔒 Focus on company success</span>
-              <span class="lk">🔒 Improve continuously</span>
+              <span class="lk">🔒 Live our company values</span><span class="lk">🔒 Demonstrate professionalism</span>
+              <span class="lk">🔒 Deliver quality work</span><span class="lk">🔒 Support your colleagues</span>
+              <span class="lk">🔒 Focus on company success</span><span class="lk">🔒 Improve continuously</span>
             </div>
           </div>
         </div></div></div>
       </section>
 
-      <!-- ===== 8 — Closing ===== -->
-      <section class="scene" id="scene-8" data-duration="9">
+      <!-- 8 — Leave Policy -->
+      <section class="scene" id="scene-8" data-duration="23">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="eyebrow beat" data-in="0.2"><span class="n">08</span> HR Policy · Stage Eight</div>
+          <h2 class="title beat" data-in="0.6">Leave Policy — April 2026</h2>
+          <div class="divider beat" data-in="1.0"></div>
+          <p class="lede beat" data-in="1.4">This policy sets out the revised leave structure effective <strong>April 2026</strong>. The objective is to ensure compliance, clarity and better employee flexibility, while maintaining operational efficiency.</p>
+
+          <div class="section-label beat" data-in="2.8"><span class="sn">1</span> Policy Changes (Existing → Revised)</div>
+          <div class="tablewrap beat" data-in="3.2"><table class="ptable">
+            <tr><th>Section</th><th>Existing</th><th>Revised</th><th>Remarks</th></tr>
+            <tr><td><b>Total Leaves</b></td><td>24 days</td><td class="rev">27 days</td><td>Increased annual leave</td></tr>
+            <tr><td><b>Earned Leave</b></td><td>12 days</td><td class="rev">15 days</td><td>Monthly accrual added</td></tr>
+            <tr><td><b>Casual Leave</b></td><td>5 days</td><td class="rev">6 days</td><td>Minor increase</td></tr>
+            <tr><td><b>Sick Leave</b></td><td>No conditions</td><td class="rev">Conditions introduced</td><td>Medical proof rules</td></tr>
+            <tr><td><b>Birthday Leave</b></td><td>Available</td><td class="rev">Removed</td><td>Policy simplification</td></tr>
+            <tr><td><b>Maternity Leave</b></td><td>Basic</td><td class="rev">Expanded provisions</td><td>As per law</td></tr>
+            <tr><td><b>New Additions</b></td><td>Not available</td><td class="rev">Sandwich, Encashment</td><td>New benefits</td></tr>
+          </table></div>
+
+          <div class="section-label beat" data-in="5.4"><span class="sn">2</span> Leave Structure — Breakup of 27 Days</div>
+          <div class="tablewrap beat" data-in="5.8"><table class="ptable">
+            <tr><th>Leave Type</th><th>No. of Days</th><th>Key Rule</th></tr>
+            <tr><td><b>Earned Leave</b></td><td>15</td><td>Apply 7 days in advance</td></tr>
+            <tr><td><b>Casual Leave</b></td><td>6</td><td>Apply 1 day prior</td></tr>
+            <tr><td><b>Sick Leave</b></td><td>6</td><td>Inform same day</td></tr>
+          </table></div>
+
+          <div class="section-label beat" data-in="7.6"><span class="sn">3</span> Leave Rules Summary</div>
+          <div class="tablewrap beat" data-in="8.0"><table class="ptable">
+            <tr><th>Leave Type</th><th>Accrual</th><th>Approval</th><th>Carry Forward</th></tr>
+            <tr><td><b>Earned Leave</b></td><td>1.25 / month</td><td>Manager approval</td><td>Yes</td></tr>
+            <tr><td><b>Casual Leave</b></td><td>0.5 / month</td><td>Manager approval</td><td>No</td></tr>
+          </table></div>
+          <div class="callout beat" data-in="9.6" style="margin-top:14px;background:var(--surface);border-left-color:var(--blue);color:var(--navy-2)"><b>Sick Leave:</b> a maximum of 2 days may be availed per quarter, subject to an overall annual cap of 6 days.</div>
+
+          <div class="section-label beat" data-in="10.8"><span class="sn">4</span> Key Policies — Newly Introduced</div>
+          <div class="tablewrap beat" data-in="11.2"><table class="ptable">
+            <tr><th>Policy</th><th>What It Means</th></tr>
+            <tr><td><b>Sandwich Leave</b></td><td>Holidays / week-offs falling between leaves are counted as leave.</td></tr>
+            <tr><td><b>Leave Encashment</b></td><td>Only the Earned Leave (EL) balance — excluding all other leave types — is eligible for conversion to cash at year-end.</td></tr>
+            <tr><td><b>Carry Forward (EL)</b></td><td>Maximum 30 days per year (60 days total limit).</td></tr>
+            <tr><td><b>Comp Off</b></td><td>Granted for working on holidays / weekly offs.</td></tr>
+            <tr><td><b>Special Leaves</b></td><td>Marriage, bereavement, and medical cases.</td></tr>
+          </table></div>
+
+          <div class="section-label beat" data-in="13.4"><span class="sn">5</span> Specific Leaves</div>
+          <div class="tablewrap beat" data-in="13.8"><table class="ptable">
+            <tr><th>Leave Type</th><th>Eligibility</th><th>Duration</th></tr>
+            <tr><td><b>Maternity Leave</b></td><td>Female employees</td><td>26 weeks</td></tr>
+            <tr><td><b>Paternity Leave</b></td><td>Male employees</td><td>7 days</td></tr>
+            <tr><td><b>Marriage Leave</b></td><td>All employees</td><td>7 days</td></tr>
+            <tr><td><b>Bereavement Leave</b></td><td>All employees</td><td>7 days</td></tr>
+          </table></div>
+
+          <div class="grid g2" style="margin-top:14px">
+            <div class="card beat" data-in="15.6"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 4l9 5.5M5 10v9h14v-9"/></svg></div><h4 style="color:var(--navy)">6 · Work From Home (WFH)</h4><ul class="list compact" style="margin-top:8px"><li>Eligibility: all employees</li><li>Monthly limit: 2 days</li><li>Quarterly benefit: +1 extra day</li><li>Approval: manager approval</li><li>Carry forward: not allowed</li></ul></div>
+            <div class="card beat" data-in="16.4"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></div><h4 style="color:var(--navy)">7 · Important Conditions</h4><ul class="list compact" style="margin-top:8px"><li>Eligibility: after 3 months' confirmation</li><li>Not applicable during PIP / bench / notice period</li><li>Applications are made through HROne</li></ul></div>
+          </div>
+          <div class="callout beat" data-in="18.0" style="margin-top:14px;background:var(--surface);border-left-color:var(--sky);color:var(--navy-2)"><b>Final note:</b> this revised policy ensures better leave flexibility, a clear approval structure, compliance with laws, and a balance between employee productivity and benefits.</div>
+        </div></div></div>
+      </section>
+
+      <!-- 9 — Code of Conduct -->
+      <section class="scene" id="scene-9" data-duration="15">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="eyebrow beat" data-in="0.2"><span class="n">09</span> HR Policy · Stage Nine</div>
+          <h2 class="title beat" data-in="0.6">Code of Conduct</h2>
+          <div class="divider beat" data-in="1.0"></div>
+          <p class="lede beat" data-in="1.4">This policy outlines the standards of professional behaviour, integrity and ethical conduct that all employees must uphold while representing the Company.</p>
+          <div class="callout beat" data-in="2.6">Any breach of this policy is treated seriously and may result in disciplinary action, <b>up to and including termination of employment</b>.</div>
+          <div class="grid g3" style="margin-top:22px">
+            <div class="card coc beat" data-in="3.4"><span class="num">1.1.1</span><h4>No Smoking Zone</h4><p>All company premises are non-smoking zones. Employees may not use tobacco products — smoking or chewing — within these areas.</p></div>
+            <div class="card coc beat" data-in="4.2"><span class="num">1.1.2</span><h4>No Substance Abuse</h4><p>A zero-tolerance policy applies. Employees may not use, possess, distribute, or be under the influence of illegal drugs, alcohol or intoxicants on premises, during work hours, or while representing the Company externally.</p></div>
+            <div class="card coc beat" data-in="5.0"><span class="num">1.1.3</span><h4>Honesty &amp; Ethical Behaviour</h4><p>Uphold the highest standards of honesty, integrity and ethics. <strong>Moonlighting:</strong> no external employment that conflicts with your responsibilities — it must be disclosed and approved by Management. <strong>Anti-corruption:</strong> no bribery, kickbacks, or corrupt practices in any dealings.</p></div>
+            <div class="card coc beat" data-in="5.8"><span class="num">1.1.4</span><h4>Workplace Behaviour</h4><p>Abusive, offensive or inappropriate language is strictly prohibited. Physical or verbal altercations are serious violations and may lead to termination. Maintain a respectful, professional demeanour at all times.</p></div>
+            <div class="card coc beat" data-in="6.6"><span class="num">1.1.5</span><h4>Work Assignments</h4><p>Refusing to perform assigned duties without a valid reason is a breach of the Code of Conduct and may result in disciplinary action.</p></div>
+            <div class="card coc beat" data-in="7.4"><span class="num">1.1.6</span><h4>Confidentiality</h4><p>Protect the Company's intellectual property, client interests and competitive position. Do not use, copy, share or distribute company-owned inventions, designs, software or proprietary processes without prior authorization.</p></div>
+            <div class="card coc beat" data-in="8.2"><span class="num">1.1.7</span><h4>Company Assets</h4><p>Laptops, vehicles, internet, telephones, mobiles and communication tools must be used responsibly and strictly for official business. Misuse is a policy violation.</p></div>
+            <div class="card coc beat" data-in="9.0"><span class="num">1.1.8</span><h4>Data Protection &amp; Privacy</h4><p>Handle personal and confidential data with care: access and share it strictly for official purposes; store and transmit it securely; maintain confidentiality; and report any suspected breach immediately.</p></div>
+            <div class="card coc beat" data-in="9.8"><span class="num">1.1.9</span><h4>Disciplinary Measures</h4><p>Proportionate to the violation: <strong>warnings</strong> (verbal/written), <strong>suspension</strong> (7 days, 10 days, 1 month or 3 months without pay), <strong>revocation of privileges</strong>, <strong>demotion</strong> (rare), or <strong>termination</strong>. All actions follow due process and management approval.</p></div>
+          </div>
+        </div></div></div>
+      </section>
+
+      <!-- 10 — Social Media Policy -->
+      <section class="scene" id="scene-10" data-duration="22">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="eyebrow beat" data-in="0.2"><span class="n">10</span> HR Policy · Stage Ten</div>
+          <h2 class="title beat" data-in="0.6">Social Media Policy</h2>
+          <div class="divider beat" data-in="1.0"></div>
+          <p class="lede beat" data-in="1.4">Social media is a powerful tool for communication, networking, professional development and employer branding. This policy protects TekFriday's reputation, brand and confidential information, and helps you become a positive ambassador of the brand. It should be read alongside the Code of Conduct, Information Security, Data Privacy, Confidentiality and Employment agreements.</p>
+
+          <div class="section-label beat" data-in="3.0"><span class="sn">S</span> Scope &amp; Platforms</div>
+          <div class="card accent beat" data-in="3.4">
+            <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px">Applies to full-time, probationary, interns and trainees, consultants, contractors, vendors, and anyone acting on behalf of the Company — across all platforms, including:</p>
+            <div class="chips">
+              <span class="chip mini">LinkedIn</span><span class="chip mini">Facebook</span><span class="chip mini">Instagram</span><span class="chip mini">X (Twitter)</span><span class="chip mini">Threads</span><span class="chip mini">YouTube</span><span class="chip mini">WhatsApp</span><span class="chip mini">Telegram</span><span class="chip mini">Reddit</span><span class="chip mini">Blogs &amp; Forums</span><span class="chip mini">Podcasts</span><span class="chip mini">Future platforms</span>
+            </div>
+          </div>
+
+          <div class="section-label beat" data-in="5.2"><span class="sn">P</span> Guiding Principles</div>
+          <div class="grid g4 beat" data-in="5.6">
+            <div class="card bar"><h4>Innovation</h4><p>Promote learning, creativity and constructive engagement.</p></div>
+            <div class="card bar"><h4>Transparency</h4><p>Communicate honestly and responsibly.</p></div>
+            <div class="card bar"><h4>Adaptability</h4><p>Use social media appropriately while embracing new technologies.</p></div>
+            <div class="card bar"><h4>Impact</h4><p>Act in a way that positively reflects on the Company and its stakeholders.</p></div>
+          </div>
+
+          <div class="section-label beat" data-in="7.4"><span class="sn">✓</span> Acceptable Use — You May</div>
+          <div class="grid g3" style="margin-top:0">
+            <div class="card allow beat" data-in="7.8"><h4>Share approved content</h4><p>Company announcements, job openings, awards, community initiatives, corporate events, approved campaigns, and published articles — once publicly released by the Company.</p></div>
+            <div class="card allow beat" data-in="8.3"><h4>Network professionally</h4><p>Connect with colleagues, build professional networks, join industry discussions and share achievements — always with professionalism and respect.</p></div>
+            <div class="card allow beat" data-in="8.8"><h4>Express personal opinions</h4><p>Provided you state they are personal, don't imply Company endorsement, don't disclose confidential information, and don't damage the Company's reputation.</p></div>
+          </div>
+
+          <div class="section-label beat" data-in="10.2"><span class="sn">✕</span> Prohibited — You Must Not</div>
+          <div class="grid g3" style="margin-top:0">
+            <div class="card deny beat" data-in="10.6"><h4>Disclose confidential info</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Customer data &amp; records</li><li>Financial information</li><li>Internal reports &amp; communications</li><li>Business strategies &amp; roadmaps</li><li>Source code &amp; architecture</li></ul><p style="margin-top:8px">Confidentiality continues even after employment ends.</p></div>
+            <div class="card deny beat" data-in="11.1"><h4>Share customer information</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Names &amp; screenshots</li><li>Internal processes &amp; project details</li><li>Loan, underwriting, credit or finance data</li></ul></div>
+            <div class="card deny beat" data-in="11.6"><h4>Discuss internal matters</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Investigations &amp; legal matters</li><li>Performance &amp; compensation</li><li>Disputes &amp; grievances</li><li>Security incidents</li></ul></div>
+            <div class="card deny beat" data-in="12.1"><h4>Represent the Company</h4><p>Only authorized spokespersons may speak to media, respond to journalists, give public statements or interviews. Don't speak on behalf of TekFriday unless authorized.</p></div>
+            <div class="card deny beat" data-in="12.6"><h4>Post offensive content</h4><p>Nothing harassing, threatening, abusive, defamatory, obscene, discriminatory, sexually explicit or hateful toward any individual or group.</p></div>
+            <div class="card deny beat" data-in="13.1"><h4>Spread false information</h4><p>No rumours, misleading or unverified claims, or inaccurate Company information.</p></div>
+          </div>
+
+          <div class="section-label beat" data-in="14.6"><span class="sn">+</span> Other Requirements</div>
+          <div class="grid g4" style="margin-top:0">
+            <div class="card beat" data-in="15.0"><h4>Recruitment</h4><p>Share only approved job ads, avoid employment commitments, and direct candidates to official channels. Only authorized HR may communicate offers.</p></div>
+            <div class="card beat" data-in="15.5"><h4>AI-generated content</h4><p>Verify accuracy, avoid confidential data, don't generate misleading content, identify AI-assisted content, and follow the AI Usage Policy.</p></div>
+            <div class="card beat" data-in="16.0"><h4>Respect &amp; branding</h4><p>Treat colleagues and stakeholders respectfully online. Don't misuse company logos, trademarks or materials for personal or commercial gain without approval.</p></div>
+            <div class="card beat" data-in="16.5"><h4>Reporting concerns</h4><p>Report confidentiality breaches, brand misuse, fake accounts or harassment to your Reporting Manager, HR, Information Security or Leadership.</p></div>
+          </div>
+
+          <div class="callout beat" data-in="18.0" style="margin-top:16px"><b>Legal liability &amp; discipline:</b> you remain personally responsible for what you publish. Violations range from warnings and suspension to termination, legal proceedings and recovery of damages. Serious violations include disclosure of confidential information, defamation, data-privacy breaches, harassment, and unauthorized media engagement. All employees must read, understand, comply with, and acknowledge this policy.</div>
+        </div></div></div>
+      </section>
+
+      <!-- 11 — Closing -->
+      <section class="scene" id="scene-11" data-duration="9">
         <div class="player"><div class="vstage center"><div class="vinner">
           <div class="close-mark beat" data-in="0.3">Your journey starts today</div>
           <h1 class="closeh beat" data-in="1.0">Welcome Aboard.<br>You're part of something great.</h1>
           <div class="vline beat" data-in="2.2"><span>Innovation</span><span>Adaptability</span><span>Impact</span><span>Transparency</span></div>
-          <p class="closep beat" data-in="3.0">When you understand the company, embrace the culture, collaborate with your team and take ownership of your work, you become a powerful contributor to our success — and a true champion of who we are.</p>
+          <p class="closep beat" data-in="3.0">When you understand the company, embrace the culture, collaborate with your team, take ownership of your work, and uphold our policies, you become a powerful contributor to our success — and a true champion of who we are.</p>
         </div></div></div>
       </section>
 
@@ -461,7 +606,6 @@
     </nav>
   </main>
 </div>
-
 <script>
 (function(){
   var STAGES=[
@@ -473,6 +617,9 @@
     {label:"Measure Success",short:"Success"},
     {label:"30-60-90 Journey",short:"Journey"},
     {label:"Brand Ambassador",short:"Ambassador",locked:true},
+    {label:"Leave Policy",short:"Leave Policy",hr:true},
+    {label:"Code of Conduct",short:"Code of Conduct",hr:true},
+    {label:"Social Media Policy",short:"Social Media",hr:true},
     {label:"Welcome Aboard",short:"Finish"}
   ];
   var TOTAL=STAGES.length, current=0;
@@ -488,56 +635,42 @@
   var PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
   var PAUSE='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   var REPLAY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg>';
-
   function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2);}
 
-  // Build a video state for each scene, injecting transport + overlay + ambient
   var states=scenes.map(function(scene,idx){
     var player=scene.querySelector('.player');
     var vstage=scene.querySelector('.vstage');
-
-    // ambient backdrop
     var amb=document.createElement('div');
     amb.className='ambient';
     amb.innerHTML='<div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div><div class="ring"></div>';
     player.insertBefore(amb,player.firstChild);
-
-    // center play overlay
     var overlay=document.createElement('button');
-    overlay.className='play-overlay';
-    overlay.setAttribute('aria-label','Play');
+    overlay.className='play-overlay'; overlay.setAttribute('aria-label','Play');
     overlay.innerHTML='<span class="circ">'+PLAY+'</span>';
     player.appendChild(overlay);
-
-    // transport bar
     var tp=document.createElement('div');
     tp.className='transport';
-    tp.innerHTML=''+
-      '<button class="tp-btn tp-play" aria-label="Play / pause">'+PAUSE+'</button>'+
+    tp.innerHTML='<button class="tp-btn tp-play" aria-label="Play / pause">'+PAUSE+'</button>'+
       '<div class="scrub"><div class="fill"></div><div class="knob"></div></div>'+
       '<span class="time">0:00 / 0:00</span>'+
       '<button class="tp-btn tp-replay" aria-label="Replay">'+REPLAY+'</button>';
     player.appendChild(tp);
-
-    var s={
-      idx:idx, el:scene, player:player, vstage:vstage,
+    var s={idx:idx,el:scene,player:player,vstage:vstage,
       dur:parseFloat(scene.dataset.duration||'10'),
       beats:Array.prototype.slice.call(scene.querySelectorAll('.beat')),
-      t:0, playing:false, ended:false,
-      overlay:overlay, playBtn:tp.querySelector('.tp-play'),
-      fill:tp.querySelector('.fill'), knob:tp.querySelector('.knob'),
-      time:tp.querySelector('.time'), scrub:tp.querySelector('.scrub')
-    };
-
-    s.playBtn.addEventListener('click',function(){ togglePlay(s); });
-    overlay.addEventListener('click',function(){ if(s.ended){ replay(s);} else { togglePlay(s);} });
-    tp.querySelector('.tp-replay').addEventListener('click',function(){ replay(s); });
+      t:0,playing:false,ended:false,_lastT:0,
+      overlay:overlay,playBtn:tp.querySelector('.tp-play'),
+      fill:tp.querySelector('.fill'),knob:tp.querySelector('.knob'),
+      time:tp.querySelector('.time'),scrub:tp.querySelector('.scrub')};
+    s.playBtn.addEventListener('click',function(){togglePlay(s);});
+    overlay.addEventListener('click',function(){ if(s.ended) replay(s); else togglePlay(s); });
+    tp.querySelector('.tp-replay').addEventListener('click',function(){replay(s);});
     function seekFromEvent(e){
       var r=s.scrub.getBoundingClientRect();
       var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
       var ratio=Math.min(1,Math.max(0,x/r.width));
-      setTime(s, ratio*s.dur, true);
-      if(s.t>=s.dur) markEnded(s); else { s.ended=false; }
+      setTime(s,ratio*s.dur,true);
+      if(s.t>=s.dur) markEnded(s); else s.ended=false;
     }
     var dragging=false;
     s.scrub.addEventListener('mousedown',function(e){dragging=true;pauseInternal(s);seekFromEvent(e);});
@@ -545,15 +678,14 @@
     window.addEventListener('mouseup',function(){dragging=false;});
     s.scrub.addEventListener('touchstart',function(e){pauseInternal(s);seekFromEvent(e);},{passive:true});
     s.scrub.addEventListener('touchmove',function(e){seekFromEvent(e);},{passive:true});
-
     return s;
   });
 
   function applyBeats(s,scroll){
-    var newest=null, prev=s._lastT||0;
+    var prev=s._lastT||0,newest=null;
     s.beats.forEach(function(b){
       var inT=parseFloat(b.dataset.in||0);
-      if(s.t>=inT-0.0001){ b.classList.add('on'); } else { b.classList.remove('on'); }
+      if(s.t>=inT-0.0001) b.classList.add('on'); else b.classList.remove('on');
     });
     if(scroll && s.t>prev){
       s.beats.forEach(function(b){
@@ -566,102 +698,69 @@
   }
   function scrollIntoView(s,beat){
     if(isMobile()){ beat.scrollIntoView({behavior:'smooth',block:'center'}); return; }
-    var c=s.vstage, cr=c.getBoundingClientRect(), br=beat.getBoundingClientRect();
+    var c=s.vstage,cr=c.getBoundingClientRect(),br=beat.getBoundingClientRect();
     var top=br.top-cr.top+c.scrollTop-(c.clientHeight*0.30);
     c.scrollTo({top:Math.max(0,top),behavior:'smooth'});
   }
-  function paint(s){
-    var pct=s.dur?(s.t/s.dur):0;
-    s.fill.style.width=(pct*100)+'%';
-    s.knob.style.left=(pct*100)+'%';
-    s.time.textContent=fmt(s.t)+' / '+fmt(s.dur);
-  }
-  function setTime(s,t,scrubbing){
-    s.t=Math.min(Math.max(0,t),s.dur);
-    applyBeats(s, !scrubbing);
-    paint(s);
-  }
+  function paint(s){var p=s.dur?(s.t/s.dur):0;s.fill.style.width=(p*100)+'%';s.knob.style.left=(p*100)+'%';s.time.textContent=fmt(s.t)+' / '+fmt(s.dur);}
+  function setTime(s,t,scrubbing){s.t=Math.min(Math.max(0,t),s.dur);applyBeats(s,!scrubbing);paint(s);}
 
   var raf=null,last=0;
   function loop(ts){
     var s=states[current];
-    if(s && s.playing){
-      if(!last) last=ts;
-      var dt=(ts-last)/1000; last=ts;
-      setTime(s, s.t+dt, false);
-      if(s.t>=s.dur){ markEnded(s); }
-    } else { last=ts; }
+    if(s&&s.playing){ if(!last) last=ts; var dt=(ts-last)/1000; last=ts; setTime(s,s.t+dt,false); if(s.t>=s.dur) markEnded(s); }
+    else last=ts;
     raf=requestAnimationFrame(loop);
   }
+  function play(s){s.playing=true;s.ended=false;last=0;s.player.classList.add('is-playing');s.overlay.classList.remove('show');s.playBtn.innerHTML=PAUSE;setNextPulse(false);}
+  function pauseInternal(s){s.playing=false;s.player.classList.remove('is-playing');s.playBtn.innerHTML=PLAY;}
+  function pause(s){pauseInternal(s);s.overlay.querySelector('.circ').innerHTML=PLAY;s.overlay.classList.add('show');}
+  function togglePlay(s){if(s.ended){replay(s);return;}if(s.playing)pause(s);else play(s);}
+  function replay(s){setTime(s,0,true);s.vstage.scrollTop=0;play(s);}
+  function markEnded(s){s.t=s.dur;paint(s);applyBeats(s,false);s.playing=false;s.ended=true;s.player.classList.remove('is-playing');s.playBtn.innerHTML=REPLAY;s.overlay.querySelector('.circ').innerHTML=REPLAY;s.overlay.classList.add('show');if(s.idx===current)setNextPulse(true);}
 
-  function play(s){ s.playing=true; s.ended=false; last=0; s.player.classList.add('is-playing'); s.overlay.classList.remove('show'); s.playBtn.innerHTML=PAUSE; setNextPulse(false); }
-  function pauseInternal(s){ s.playing=false; s.player.classList.remove('is-playing'); s.playBtn.innerHTML=PLAY; }
-  function pause(s){ pauseInternal(s); s.overlay.querySelector('.circ').innerHTML=PLAY; s.overlay.classList.add('show'); }
-  function togglePlay(s){ if(s.ended){ replay(s); return;} if(s.playing) pause(s); else play(s); }
-  function replay(s){ setTime(s,0,true); s.vstage.scrollTop=0; play(s); }
-  function markEnded(s){ s.t=s.dur; paint(s); applyBeats(s,false); s.playing=false; s.ended=true; s.player.classList.remove('is-playing'); s.playBtn.innerHTML=REPLAY; s.overlay.querySelector('.circ').innerHTML=REPLAY; s.overlay.classList.add('show'); if(s.idx===current) setNextPulse(true); }
+  function startScene(i){var s=states[i];s.vstage.scrollTop=0;if(reduced){setTime(s,s.dur,true);s.ended=true;s.playBtn.innerHTML=REPLAY;s.overlay.classList.remove('show');return;}setTime(s,0,true);play(s);}
+  function stopScene(i){var s=states[i];pauseInternal(s);s.ended=false;setTime(s,0,true);s.vstage.scrollTop=0;s.overlay.classList.remove('show');}
 
-  function startScene(i){
-    var s=states[i];
-    s.vstage.scrollTop=0;
-    if(reduced){ setTime(s,s.dur,true); s.ended=true; s.playBtn.innerHTML=REPLAY; s.overlay.classList.remove('show'); return; }
-    setTime(s,0,true);
-    play(s);
-  }
-  function stopScene(i){
-    var s=states[i];
-    pauseInternal(s); s.ended=false; setTime(s,0,true); s.vstage.scrollTop=0; s.overlay.classList.remove('show');
-  }
-
-  // rail
-  for(var i=1;i<=7;i++){(function(idx){
-    var li=document.createElement('li'); li.className='step'; li.dataset.target=idx;
+  for(var i=1;i<=10;i++){(function(idx){
+    var li=document.createElement('li'); li.className='step'+(STAGES[idx].hr&&idx===8?' sep':''); li.dataset.target=idx;
     var pin=STAGES[idx].locked?'<span class="pin">🔒</span>':'';
     li.innerHTML='<span class="dot">'+idx+'</span><span>'+STAGES[idx].short+'</span>'+pin;
     li.addEventListener('click',function(){go(idx);});
     stepsEl.appendChild(li);
   })(i);}
   var stepEls=stepsEl.querySelectorAll('.step');
-
-  function setNextPulse(on){ nextBtn.classList.toggle('pulse', !!on); }
+  function setNextPulse(on){nextBtn.classList.toggle('pulse',!!on);}
 
   function render(){
-    scenes.forEach(function(sc,i){ sc.classList.toggle('is-active', i===current); });
-    states.forEach(function(s,i){ if(i!==current) stopScene(i); });
-
-    stepEls.forEach(function(el){
-      var t=parseInt(el.dataset.target,10);
-      el.classList.toggle('active',t===current);
-      el.classList.toggle('done',t<current);
-      el.classList.toggle('locked',!!STAGES[t].locked && t!==current);
-    });
+    scenes.forEach(function(sc,i){sc.classList.toggle('is-active',i===current);});
+    states.forEach(function(s,i){if(i!==current)stopScene(i);});
+    stepEls.forEach(function(el){var t=parseInt(el.dataset.target,10);el.classList.toggle('active',t===current);el.classList.toggle('done',t<current);el.classList.toggle('locked',!!STAGES[t].locked&&t!==current);});
     counter.textContent=STAGES[current].label;
     var pct=TOTAL>1?Math.round((current/(TOTAL-1))*100):0;
-    progress.style.width=pct+'%'; mbar.style.width=pct+'%'; mlabel.textContent=STAGES[current].short;
-
+    progress.style.width=pct+'%';mbar.style.width=pct+'%';mlabel.textContent=STAGES[current].short;
     backBtn.disabled=(current===0);
     if(current===0) nextBtn.innerHTML='Begin onboarding <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>';
     else if(current===TOTAL-2) nextBtn.innerHTML='Finish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>';
     else if(current===TOTAL-1) nextBtn.innerHTML='Restart <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg>';
     else nextBtn.innerHTML='Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>';
     setNextPulse(false);
-
     startScene(current);
+    var act=stepsEl.querySelector('.step.active'); if(act&&act.scrollIntoView) act.scrollIntoView({block:'nearest'});
   }
-  function go(i){ if(i<0)i=0; if(i>TOTAL-1)i=0; current=i; render(); if(isMobile()) window.scrollTo({top:0,behavior:'smooth'}); }
-
-  nextBtn.addEventListener('click',function(){ if(current===TOTAL-1) go(0); else go(current+1); });
-  backBtn.addEventListener('click',function(){ go(current-1); });
+  function go(i){if(i<0)i=0;if(i>TOTAL-1)i=0;current=i;render();if(isMobile())window.scrollTo({top:0,behavior:'smooth'});}
+  nextBtn.addEventListener('click',function(){if(current===TOTAL-1)go(0);else go(current+1);});
+  backBtn.addEventListener('click',function(){go(current-1);});
   document.addEventListener('keydown',function(e){
-    if(e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
-    if(e.key==='ArrowRight') nextBtn.click();
-    else if(e.key==='ArrowLeft' && !backBtn.disabled) backBtn.click();
-    else if(e.key===' '){ e.preventDefault(); togglePlay(states[current]); }
+    if(e.target&&/^(INPUT|TEXTAREA)$/.test(e.target.tagName))return;
+    if(e.key==='ArrowRight')nextBtn.click();
+    else if(e.key==='ArrowLeft'&&!backBtn.disabled)backBtn.click();
+    else if(e.key===' '){e.preventDefault();togglePlay(states[current]);}
   });
-
   raf=requestAnimationFrame(loop);
   render();
 })();
 </script>
+
 </body>
 </html>
