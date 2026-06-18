@@ -251,6 +251,15 @@
   .step.group-label{cursor:default;pointer-events:none;color:#7196b6;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:14px 9px 5px;}
   .step.group-label .dot{display:none;} .step.group-label::before{display:none;}
   .step.endgroup::before{display:none;}
+  table.dodont{width:100%;border-collapse:collapse;font-size:12.3px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);min-width:640px;}
+  .dodont th{padding:11px 14px;font-family:"Sora";font-size:12.5px;text-align:left;color:#fff;width:50%;}
+  .dodont th.do{background:linear-gradient(135deg,var(--blue),var(--blue-bright));}
+  .dodont th.dont{background:linear-gradient(135deg,#C0473C,#D8584C);}
+  .dodont td{padding:9px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.45;width:50%;}
+  .dodont td.do{background:rgba(46,134,193,.05);} .dodont td.dont{background:rgba(216,88,76,.05);}
+  .dodont td.do::before{content:"\2713  ";color:var(--blue);font-weight:800;}
+  .dodont td.dont::before{content:"\2715  ";color:#C0473C;font-weight:800;}
+  .note-blue{background:var(--surface);border-left:4px solid var(--sky);border-radius:0 12px 12px 0;padding:13px 18px;color:var(--navy-2);font-size:13px;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -452,149 +461,144 @@
         </div></div></div>
       </section>
 
-      <!-- 8 — Leave Policy -->
+      <!-- 8 — Office, Timings & Attendance -->
       <section class="scene doc" id="scene-8">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
           <div class="eyebrow"><span class="n">8</span> HR Policies</div>
-          <h2 class="title beat" data-in="0.6">Leave Policy — April 2026</h2>
-          <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">This policy sets out the revised leave structure effective <strong>April 2026</strong>. The objective is to ensure compliance, clarity and better employee flexibility, while maintaining operational efficiency.</p>
+          <h2 class="title">Office, Timings &amp; Attendance</h2>
+          <div class="divider"></div>
+          <p class="lede">How and where we work day to day. Your exact timings depend on the project, department and office location you're assigned to.</p>
+          <div class="grid g3" style="margin-top:22px">
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4 style="color:var(--navy)">Office Locations &amp; Timings</h4><p>We operate from <strong>10:00 AM to 7:00 PM</strong>, though timings depend on your project and department. We work from two locations — <strong>One West Terminus</strong> and <strong>MJR Magnifique</strong> — and the timings for these two differ.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v4l-4 6 4 6v4H6v-4l4-6-4-6z"/></svg></div><h4 style="color:var(--navy)">Mandatory Hours</h4><p>Complete <strong>9 hours</strong> a day based on your project and work location. Not completing your hours on more than <strong>3 instances</strong> results in loss of pay. You must also log in on time — a grace period is allowed, but more than <strong>3 late logins</strong> also results in loss of pay.</p></div>
+            <div class="card"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M13 10h5M13 13.5h5M6 15.5h5"/></svg></div><h4 style="color:var(--navy)">Attendance Policy</h4><p>We primarily work from office, checking in and out via <strong>biometric, facial recognition or access card</strong>. Attendance is visible in our HRMS, and you're expected in office <strong>5 days a week</strong>. Full night-shift employees work either from the office or from home.</p></div>
+          </div>
+          <div class="note-blue" style="margin-top:16px">For full details, read the <strong>Attendance Policy</strong> on HRMS or the employee handbook.</div>
+        </div></div></div>
+      </section>
 
-          <div class="section-label beat" data-in="2.8"><span class="sn">1</span> Policy Changes (Existing → Revised)</div>
-          <div class="tablewrap beat" data-in="3.2"><table class="ptable">
-            <tr><th>Section</th><th>Existing</th><th>Revised</th><th>Remarks</th></tr>
-            <tr><td><b>Total Leaves</b></td><td>24 days</td><td class="rev">27 days</td><td>Increased annual leave</td></tr>
-            <tr><td><b>Earned Leave</b></td><td>12 days</td><td class="rev">15 days</td><td>Monthly accrual added</td></tr>
-            <tr><td><b>Casual Leave</b></td><td>5 days</td><td class="rev">6 days</td><td>Minor increase</td></tr>
-            <tr><td><b>Sick Leave</b></td><td>No conditions</td><td class="rev">Conditions introduced</td><td>Medical proof rules</td></tr>
-            <tr><td><b>Birthday Leave</b></td><td>Available</td><td class="rev">Removed</td><td>Policy simplification</td></tr>
-            <tr><td><b>Maternity Leave</b></td><td>Basic</td><td class="rev">Expanded provisions</td><td>As per law</td></tr>
-            <tr><td><b>New Additions</b></td><td>Not available</td><td class="rev">Sandwich, Encashment</td><td>New benefits</td></tr>
+      <!-- 9 — Leave Policy -->
+      <section class="scene doc" id="scene-9">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">9</span> HR Policies</div>
+          <h2 class="title">Leave Policy</h2>
+          <div class="divider"></div>
+          <p class="lede">Our leave cycle runs from <strong>April to March</strong>. Only earned leaves are eligible for carry-forward or encashment, up to a maximum Earned Leave balance of <strong>60 days</strong>. In total, employees have <strong>27 days</strong> of leave.</p>
+          <div class="section-label"><span class="sn">1</span> Your 27 Days — Breakdown &amp; Accrual</div>
+          <div class="tablewrap"><table class="ptable">
+            <tr><th>Leave Type</th><th>Days</th><th>Accrual</th><th>Carry Forward</th></tr>
+            <tr><td><b>Earned Leave</b></td><td>15</td><td>Accrued monthly; pro-rata for new joiners</td><td class="rev">Up to 60 days</td></tr>
+            <tr><td><b>Casual Leave</b></td><td>6</td><td>Accrued monthly</td><td>Carried to next quarter</td></tr>
+            <tr><td><b>Sick Leave</b></td><td>6</td><td>2 accrued per quarter</td><td>See note below</td></tr>
           </table></div>
-
-          <div class="section-label beat" data-in="5.4"><span class="sn">2</span> Leave Structure — Breakup of 27 Days</div>
-          <div class="tablewrap beat" data-in="5.8"><table class="ptable">
-            <tr><th>Leave Type</th><th>No. of Days</th><th>Key Rule</th></tr>
-            <tr><td><b>Earned Leave</b></td><td>15</td><td>Apply 7 days in advance</td></tr>
-            <tr><td><b>Casual Leave</b></td><td>6</td><td>Apply 1 day prior</td></tr>
-            <tr><td><b>Sick Leave</b></td><td>6</td><td>Inform same day</td></tr>
-          </table></div>
-
-          <div class="section-label beat" data-in="7.6"><span class="sn">3</span> Leave Rules Summary</div>
-          <div class="tablewrap beat" data-in="8.0"><table class="ptable">
-            <tr><th>Leave Type</th><th>Accrual</th><th>Approval</th><th>Carry Forward</th></tr>
-            <tr><td><b>Earned Leave</b></td><td>1.25 / month</td><td>Manager approval</td><td>Yes</td></tr>
-            <tr><td><b>Casual Leave</b></td><td>0.5 / month</td><td>Manager approval</td><td>No</td></tr>
-          </table></div>
-          <div class="callout beat" data-in="9.6" style="margin-top:14px;background:var(--surface);border-left-color:var(--blue);color:var(--navy-2)"><b>Sick Leave:</b> a maximum of 2 days may be availed per quarter, subject to an overall annual cap of 6 days.</div>
-
-          <div class="section-label beat" data-in="10.8"><span class="sn">4</span> Key Policies — Newly Introduced</div>
-          <div class="tablewrap beat" data-in="11.2"><table class="ptable">
-            <tr><th>Policy</th><th>What It Means</th></tr>
-            <tr><td><b>Sandwich Leave</b></td><td>Holidays / week-offs falling between leaves are counted as leave.</td></tr>
-            <tr><td><b>Leave Encashment</b></td><td>Only the Earned Leave (EL) balance — excluding all other leave types — is eligible for conversion to cash at year-end.</td></tr>
-            <tr><td><b>Carry Forward (EL)</b></td><td>Maximum 30 days per year (60 days total limit).</td></tr>
-            <tr><td><b>Comp Off</b></td><td>Granted for working on holidays / weekly offs.</td></tr>
-            <tr><td><b>Special Leaves</b></td><td>Marriage, bereavement, and medical cases.</td></tr>
-          </table></div>
-
-          <div class="section-label beat" data-in="13.4"><span class="sn">5</span> Specific Leaves</div>
-          <div class="tablewrap beat" data-in="13.8"><table class="ptable">
+          <div class="callout" style="margin-top:14px;background:var(--surface);border-left-color:var(--blue);color:var(--navy-2)"><b>Sick Leave detail:</b> 2 sick leaves are accrued each quarter. In the last quarter, if your remaining balance is below 5 you receive 2 days; if it is more than 4 and less than 6 you receive the remaining balance; and if you have already exhausted all leaves in earlier quarters, your last-quarter balance is zero. Availing <b>more than one sick leave at a time</b> requires a doctor's note.</div>
+          <div class="note-blue" style="margin-top:12px"><b>Encashment:</b> encashing Earned Leave at year-end is optional — the default setting is carry-forward. Only Earned Leave is eligible for carry-forward or encashment.</div>
+          <div class="section-label"><span class="sn">2</span> Other Leaves <span style="font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink-soft);font-size:12px">— activated via email; upload a document if required</span></div>
+          <div class="tablewrap"><table class="ptable">
             <tr><th>Leave Type</th><th>Eligibility</th><th>Duration</th></tr>
             <tr><td><b>Maternity Leave</b></td><td>Female employees</td><td>26 weeks</td></tr>
             <tr><td><b>Paternity Leave</b></td><td>Male employees</td><td>7 days</td></tr>
             <tr><td><b>Marriage Leave</b></td><td>All employees</td><td>7 days</td></tr>
             <tr><td><b>Bereavement Leave</b></td><td>All employees</td><td>7 days</td></tr>
           </table></div>
-
-          <div class="grid g2" style="margin-top:14px">
-            <div class="card beat" data-in="15.6"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 4l9 5.5M5 10v9h14v-9"/></svg></div><h4 style="color:var(--navy)">6 · Work From Home (WFH)</h4><ul class="list compact" style="margin-top:8px"><li>Eligibility: all employees</li><li>Monthly limit: 2 days</li><li>Quarterly benefit: +1 extra day</li><li>Approval: manager approval</li><li>Carry forward: not allowed</li></ul></div>
-            <div class="card beat" data-in="16.4"><div class="ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></div><h4 style="color:var(--navy)">7 · Important Conditions</h4><ul class="list compact" style="margin-top:8px"><li>Eligibility: after 3 months' confirmation</li><li>Not applicable during PIP / bench / notice period</li><li>Applications are made through HROne</li></ul></div>
-          </div>
-          <div class="callout beat" data-in="18.0" style="margin-top:14px;background:var(--surface);border-left-color:var(--sky);color:var(--navy-2)"><b>Final note:</b> this revised policy ensures better leave flexibility, a clear approval structure, compliance with laws, and a balance between employee productivity and benefits.</div>
+          <div class="note-blue" style="margin-top:16px">For more information, read the full <strong>Leave Policy</strong> on HRMS or the employee handbook.</div>
         </div></div></div>
       </section>
 
-      <!-- 9 — Code of Conduct -->
-      <section class="scene doc" id="scene-9">
-        <div class="player"><div class="vstage"><div class="vinner">
-          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
-          <div class="eyebrow"><span class="n">9</span> HR Policies</div>
-          <h2 class="title beat" data-in="0.6">Code of Conduct</h2>
-          <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">This policy outlines the standards of professional behaviour, integrity and ethical conduct that all employees must uphold while representing the Company.</p>
-          <div class="callout beat" data-in="2.6">Any breach of this policy is treated seriously and may result in disciplinary action, <b>up to and including termination of employment</b>.</div>
-          <div class="grid g3" style="margin-top:22px">
-            <div class="card coc beat" data-in="3.4"><span class="num">1.1.1</span><h4>No Smoking Zone</h4><p>All company premises are non-smoking zones. Employees may not use tobacco products — smoking or chewing — within these areas.</p></div>
-            <div class="card coc beat" data-in="4.2"><span class="num">1.1.2</span><h4>No Substance Abuse</h4><p>A zero-tolerance policy applies. Employees may not use, possess, distribute, or be under the influence of illegal drugs, alcohol or intoxicants on premises, during work hours, or while representing the Company externally.</p></div>
-            <div class="card coc beat" data-in="5.0"><span class="num">1.1.3</span><h4>Honesty &amp; Ethical Behaviour</h4><p>Uphold the highest standards of honesty, integrity and ethics. <strong>Moonlighting:</strong> no external employment that conflicts with your responsibilities — it must be disclosed and approved by Management. <strong>Anti-corruption:</strong> no bribery, kickbacks, or corrupt practices in any dealings.</p></div>
-            <div class="card coc beat" data-in="5.8"><span class="num">1.1.4</span><h4>Workplace Behaviour</h4><p>Abusive, offensive or inappropriate language is strictly prohibited. Physical or verbal altercations are serious violations and may lead to termination. Maintain a respectful, professional demeanour at all times.</p></div>
-            <div class="card coc beat" data-in="6.6"><span class="num">1.1.5</span><h4>Work Assignments</h4><p>Refusing to perform assigned duties without a valid reason is a breach of the Code of Conduct and may result in disciplinary action.</p></div>
-            <div class="card coc beat" data-in="7.4"><span class="num">1.1.6</span><h4>Confidentiality</h4><p>Protect the Company's intellectual property, client interests and competitive position. Do not use, copy, share or distribute company-owned inventions, designs, software or proprietary processes without prior authorization.</p></div>
-            <div class="card coc beat" data-in="8.2"><span class="num">1.1.7</span><h4>Company Assets</h4><p>Laptops, vehicles, internet, telephones, mobiles and communication tools must be used responsibly and strictly for official business. Misuse is a policy violation.</p></div>
-            <div class="card coc beat" data-in="9.0"><span class="num">1.1.8</span><h4>Data Protection &amp; Privacy</h4><p>Handle personal and confidential data with care: access and share it strictly for official purposes; store and transmit it securely; maintain confidentiality; and report any suspected breach immediately.</p></div>
-            <div class="card coc beat" data-in="9.8"><span class="num">1.1.9</span><h4>Disciplinary Measures</h4><p>Proportionate to the violation: <strong>warnings</strong> (verbal/written), <strong>suspension</strong> (7 days, 10 days, 1 month or 3 months without pay), <strong>revocation of privileges</strong>, <strong>demotion</strong> (rare), or <strong>termination</strong>. All actions follow due process and management approval.</p></div>
-          </div>
-        </div></div></div>
-      </section>
-
-      <!-- 10 — Social Media Policy -->
+      <!-- 10 — Code of Conduct -->
       <section class="scene doc" id="scene-10">
         <div class="player"><div class="vstage"><div class="vinner">
           <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
           <div class="eyebrow"><span class="n">10</span> HR Policies</div>
-          <h2 class="title beat" data-in="0.6">Social Media Policy</h2>
-          <div class="divider beat" data-in="1.0"></div>
-          <p class="lede beat" data-in="1.4">Social media is a powerful tool for communication, networking, professional development and employer branding. This policy protects TekFriday's reputation, brand and confidential information, and helps you become a positive ambassador of the brand. It should be read alongside the Code of Conduct, Information Security, Data Privacy, Confidentiality and Employment agreements.</p>
-
-          <div class="section-label beat" data-in="3.0"><span class="sn">S</span> Scope &amp; Platforms</div>
-          <div class="card accent beat" data-in="3.4">
-            <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px">Applies to full-time, probationary, interns and trainees, consultants, contractors, vendors, and anyone acting on behalf of the Company — across all platforms, including:</p>
-            <div class="chips">
-              <span class="chip mini">LinkedIn</span><span class="chip mini">Facebook</span><span class="chip mini">Instagram</span><span class="chip mini">X (Twitter)</span><span class="chip mini">Threads</span><span class="chip mini">YouTube</span><span class="chip mini">WhatsApp</span><span class="chip mini">Telegram</span><span class="chip mini">Reddit</span><span class="chip mini">Blogs &amp; Forums</span><span class="chip mini">Podcasts</span><span class="chip mini">Future platforms</span>
-            </div>
-          </div>
-
-          <div class="section-label beat" data-in="5.2"><span class="sn">P</span> Guiding Principles</div>
-          <div class="grid g4 beat" data-in="5.6">
-            <div class="card bar"><h4>Innovation</h4><p>Promote learning, creativity and constructive engagement.</p></div>
-            <div class="card bar"><h4>Transparency</h4><p>Communicate honestly and responsibly.</p></div>
-            <div class="card bar"><h4>Adaptability</h4><p>Use social media appropriately while embracing new technologies.</p></div>
-            <div class="card bar"><h4>Impact</h4><p>Act in a way that positively reflects on the Company and its stakeholders.</p></div>
-          </div>
-
-          <div class="section-label beat" data-in="7.4"><span class="sn">✓</span> Acceptable Use — You May</div>
-          <div class="grid g3" style="margin-top:0">
-            <div class="card allow beat" data-in="7.8"><h4>Share approved content</h4><p>Company announcements, job openings, awards, community initiatives, corporate events, approved campaigns, and published articles — once publicly released by the Company.</p></div>
-            <div class="card allow beat" data-in="8.3"><h4>Network professionally</h4><p>Connect with colleagues, build professional networks, join industry discussions and share achievements — always with professionalism and respect.</p></div>
-            <div class="card allow beat" data-in="8.8"><h4>Express personal opinions</h4><p>Provided you state they are personal, don't imply Company endorsement, don't disclose confidential information, and don't damage the Company's reputation.</p></div>
-          </div>
-
-          <div class="section-label beat" data-in="10.2"><span class="sn">✕</span> Prohibited — You Must Not</div>
-          <div class="grid g3" style="margin-top:0">
-            <div class="card deny beat" data-in="10.6"><h4>Disclose confidential info</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Customer data &amp; records</li><li>Financial information</li><li>Internal reports &amp; communications</li><li>Business strategies &amp; roadmaps</li><li>Source code &amp; architecture</li></ul><p style="margin-top:8px">Confidentiality continues even after employment ends.</p></div>
-            <div class="card deny beat" data-in="11.1"><h4>Share customer information</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Names &amp; screenshots</li><li>Internal processes &amp; project details</li><li>Loan, underwriting, credit or finance data</li></ul></div>
-            <div class="card deny beat" data-in="11.6"><h4>Discuss internal matters</h4><ul class="list deny-list compact" style="margin-top:6px"><li>Investigations &amp; legal matters</li><li>Performance &amp; compensation</li><li>Disputes &amp; grievances</li><li>Security incidents</li></ul></div>
-            <div class="card deny beat" data-in="12.1"><h4>Represent the Company</h4><p>Only authorized spokespersons may speak to media, respond to journalists, give public statements or interviews. Don't speak on behalf of TekFriday unless authorized.</p></div>
-            <div class="card deny beat" data-in="12.6"><h4>Post offensive content</h4><p>Nothing harassing, threatening, abusive, defamatory, obscene, discriminatory, sexually explicit or hateful toward any individual or group.</p></div>
-            <div class="card deny beat" data-in="13.1"><h4>Spread false information</h4><p>No rumours, misleading or unverified claims, or inaccurate Company information.</p></div>
-          </div>
-
-          <div class="section-label beat" data-in="14.6"><span class="sn">+</span> Other Requirements</div>
-          <div class="grid g4" style="margin-top:0">
-            <div class="card beat" data-in="15.0"><h4>Recruitment</h4><p>Share only approved job ads, avoid employment commitments, and direct candidates to official channels. Only authorized HR may communicate offers.</p></div>
-            <div class="card beat" data-in="15.5"><h4>AI-generated content</h4><p>Verify accuracy, avoid confidential data, don't generate misleading content, identify AI-assisted content, and follow the AI Usage Policy.</p></div>
-            <div class="card beat" data-in="16.0"><h4>Respect &amp; branding</h4><p>Treat colleagues and stakeholders respectfully online. Don't misuse company logos, trademarks or materials for personal or commercial gain without approval.</p></div>
-            <div class="card beat" data-in="16.5"><h4>Reporting concerns</h4><p>Report confidentiality breaches, brand misuse, fake accounts or harassment to your Reporting Manager, HR, Information Security or Leadership.</p></div>
-          </div>
-
-          <div class="callout beat" data-in="18.0" style="margin-top:16px"><b>Legal liability &amp; discipline:</b> you remain personally responsible for what you publish. Violations range from warnings and suspension to termination, legal proceedings and recovery of damages. Serious violations include disclosure of confidential information, defamation, data-privacy breaches, harassment, and unauthorized media engagement. All employees must read, understand, comply with, and acknowledge this policy.</div>
+          <h2 class="title">Code of Conduct</h2>
+          <div class="divider"></div>
+          <p class="lede">The standards of professional behaviour, integrity and ethical conduct expected of everyone who represents TekFriday — summarised as a clear list of do's and don'ts.</p>
+          <div class="tablewrap" style="margin-top:20px"><table class="dodont">
+            <tr><th class="do">Do's</th><th class="dont">Don'ts</th></tr>
+            <tr><td class="do">Act with honesty, integrity, and professionalism.</td><td class="dont">Engage in fraud, dishonesty, or unethical conduct.</td></tr>
+            <tr><td class="do">Treat colleagues, managers, vendors, and stakeholders with dignity and respect.</td><td class="dont">Use abusive, offensive, discriminatory, or threatening language.</td></tr>
+            <tr><td class="do">Follow Company policies, procedures, and applicable laws.</td><td class="dont">Deliberately disregard Company policies or management instructions.</td></tr>
+            <tr><td class="do">Protect confidential and proprietary information.</td><td class="dont">Share confidential information internally or externally without authorization.</td></tr>
+            <tr><td class="do">Use Company assets responsibly and for business purposes.</td><td class="dont">Misuse Company assets, systems, software, or resources for personal gain.</td></tr>
+            <tr><td class="do">Report conflicts of interest to HR or Management.</td><td class="dont">Conceal personal, financial, or professional conflicts of interest.</td></tr>
+            <tr><td class="do">Seek approval before undertaking any external employment or business activity.</td><td class="dont">Moonlight, freelance, consult, or engage in external work without approval.</td></tr>
+            <tr><td class="do">Maintain accurate records and provide truthful information.</td><td class="dont">Falsify records, reports, attendance, expenses, or business information.</td></tr>
+            <tr><td class="do">Protect Company intellectual property and information systems.</td><td class="dont">Copy, distribute, or disclose Company software, code, documents, or processes.</td></tr>
+            <tr><td class="do">Follow information security and data privacy requirements.</td><td class="dont">Access, use, or share information beyond your authorized access.</td></tr>
+            <tr><td class="do">Report data breaches, security incidents, or suspicious activities immediately.</td><td class="dont">Ignore or conceal information security concerns or data breaches.</td></tr>
+            <tr><td class="do">Maintain a professional workplace environment.</td><td class="dont">Participate in workplace bullying, harassment, intimidation, or violence.</td></tr>
+            <tr><td class="do">Cooperate during investigations, audits, and compliance reviews.</td><td class="dont">Obstruct investigations or provide misleading information.</td></tr>
+            <tr><td class="do">Exercise responsible use of social media.</td><td class="dont">Post confidential information or content that damages the Company's reputation.</td></tr>
+            <tr><td class="do">Raise concerns through appropriate channels when you observe misconduct.</td><td class="dont">Retaliate against employees who report concerns in good faith.</td></tr>
+            <tr><td class="do">Comply with anti-bribery and anti-corruption requirements.</td><td class="dont">Offer, accept, or facilitate bribes, kickbacks, or improper payments.</td></tr>
+            <tr><td class="do">Report to work fit to perform your duties.</td><td class="dont">Report to work under the influence of drugs, alcohol, or intoxicating substances.</td></tr>
+            <tr><td class="do">Respect workplace safety standards.</td><td class="dont">Smoke, vape, or consume prohibited substances in restricted areas.</td></tr>
+            <tr><td class="do">Complete assigned work diligently and responsibly.</td><td class="dont">Refuse legitimate work assignments without valid reason.</td></tr>
+            <tr><td class="do">Represent TekFriday positively and uphold Company values.</td><td class="dont">Engage in conduct that may harm the Company's reputation or business interests.</td></tr>
+          </table></div>
+          <div class="note-blue" style="margin-top:16px">For more, read the full <strong>Code of Conduct</strong> policy on HRMS or the employee handbook.</div>
         </div></div></div>
       </section>
 
-      <!-- 11 — Closing -->
-      <section class="scene" id="scene-11" data-duration="9">
+      <!-- 11 — Dress Code -->
+      <section class="scene doc" id="scene-11">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">11</span> HR Policies</div>
+          <h2 class="title">Dress Code</h2>
+          <div class="divider"></div>
+          <p class="lede">We keep a smart, professional environment. Use the guide below to dress appropriately for the workplace.</p>
+          <div class="tablewrap" style="margin-top:20px"><table class="dodont">
+            <tr><th class="do">Appropriate Attire</th><th class="dont">Inappropriate Attire</th></tr>
+            <tr><td class="do">Smart casual or business casual clothing.</td><td class="dont">Torn, ripped, distressed, or excessively worn clothing.</td></tr>
+            <tr><td class="do">Formal shirts, polo shirts, blouses, kurtas, and collared t-shirts.</td><td class="dont">Clothing with offensive, political, discriminatory, or inappropriate slogans, graphics, or messages.</td></tr>
+            <tr><td class="do">Formal trousers, chinos, business casual pants, or neat jeans.</td><td class="dont">Shorts, gym wear, beachwear, or sleepwear.</td></tr>
+            <tr><td class="do">Dresses, skirts, or ethnic wear appropriate for a professional environment.</td><td class="dont">Excessively revealing, transparent, or provocative clothing.</td></tr>
+            <tr><td class="do">Clean and presentable footwear — formal shoes, loafers, sandals, or sneakers in good condition.</td><td class="dont">Slippers, flip-flops, bathroom sandals, or excessively casual footwear.</td></tr>
+            <tr><td class="do">Well-groomed appearance and personal hygiene.</td><td class="dont">Unkempt appearance that may affect professionalism or workplace standards.</td></tr>
+            <tr><td class="do">Company-branded apparel during approved events and activities.</td><td class="dont">Clothing that may create safety risks or disrupt the work environment.</td></tr>
+          </table></div>
+          <div class="note-blue" style="margin-top:16px">For more, read the <strong>Code of Conduct</strong> policy on HRMS or the employee handbook.</div>
+        </div></div></div>
+      </section>
+
+      <!-- 12 — Social Media Policy -->
+      <section class="scene doc" id="scene-12">
+        <div class="player"><div class="vstage"><div class="vinner">
+          <div class="refpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg> Reference Document</div>
+          <div class="eyebrow"><span class="n">12</span> HR Policies</div>
+          <h2 class="title">Social Media Policy</h2>
+          <div class="divider"></div>
+          <p class="lede">Use social media responsibly and act as a positive ambassador of TekFriday. The do's and don'ts below keep our reputation, confidential information and people protected.</p>
+          <div class="tablewrap" style="margin-top:20px"><table class="dodont">
+            <tr><th class="do">Do's</th><th class="dont">Don'ts</th></tr>
+            <tr><td class="do">Think before you post and exercise good judgment.</td><td class="dont">Post impulsively or emotionally without considering the consequences.</td></tr>
+            <tr><td class="do">Act as a positive ambassador of TekFriday and its values.</td><td class="dont">Post content that may damage the Company's reputation or credibility.</td></tr>
+            <tr><td class="do">Share approved Company announcements, achievements, and recruitment campaigns.</td><td class="dont">Share confidential, proprietary, or non-public Company information.</td></tr>
+            <tr><td class="do">Clearly distinguish personal opinions from Company positions.</td><td class="dont">Represent personal views as official Company views.</td></tr>
+            <tr><td class="do">Use professional and respectful language in all online interactions.</td><td class="dont">Use abusive, offensive, discriminatory, defamatory, or threatening language.</td></tr>
+            <tr><td class="do">Respect colleagues, management, vendors, partners, and stakeholders.</td><td class="dont">Criticize, harass, defame, ridicule, or publicly target colleagues or partners.</td></tr>
+            <tr><td class="do">Protect confidential information relating to TekFriday, its parent company, and partners.</td><td class="dont">Share internal emails, screenshots, presentations, reports, or strategy documents.</td></tr>
+            <tr><td class="do">Verify information before posting or sharing.</td><td class="dont">Spread rumors, misinformation, or unverified information.</td></tr>
+            <tr><td class="do">Respect copyright, trademarks, intellectual property, and privacy rights.</td><td class="dont">Use Company logos, branding, or proprietary materials without authorization.</td></tr>
+            <tr><td class="do">Report fake profiles, brand misuse, or security concerns promptly.</td><td class="dont">Ignore unauthorized use of Company branding or confidential information.</td></tr>
+            <tr><td class="do">Follow policies on information security, confidentiality, and data protection.</td><td class="dont">Upload Company, employee, or vendor information to public forums or AI tools without approval.</td></tr>
+            <tr><td class="do">Maintain professionalism when discussing industry trends and workplace topics.</td><td class="dont">Publicly discuss internal disputes, disciplinary matters, investigations, or grievances.</td></tr>
+            <tr><td class="do">Use social media responsibly during working hours.</td><td class="dont">Allow social media usage to interfere with work responsibilities or productivity.</td></tr>
+            <tr><td class="do">Seek approval before responding to media inquiries or public statements.</td><td class="dont">Speak to the media or represent the Company without authorization.</td></tr>
+            <tr><td class="do">Use approved disclaimers when discussing professional topics online.</td><td class="dont">Create the impression that you are an official spokesperson unless authorized.</td></tr>
+            <tr><td class="do">Respect the confidentiality of vendor relationships and business partnerships.</td><td class="dont">Disclose details about vendors, systems, software, contracts, or business arrangements.</td></tr>
+            <tr><td class="do">Ensure AI-generated content is accurate and compliant with policies.</td><td class="dont">Publish AI-generated content containing confidential or misleading information.</td></tr>
+            <tr><td class="do">Support a respectful and inclusive online environment.</td><td class="dont">Engage in cyberbullying, trolling, or hostile online behavior.</td></tr>
+          </table></div>
+          <div class="note-blue" style="margin-top:16px">For more, read the full <strong>Social Media Usage</strong> policy on HRMS or the employee handbook.</div>
+        </div></div></div>
+      </section>
+
+      <!-- 13 — Closing -->
+      <section class="scene" id="scene-13" data-duration="9">
         <div class="player"><div class="vstage center"><div class="vinner">
           <div class="close-mark beat" data-in="0.3">Your journey starts today</div>
           <h1 class="closeh beat" data-in="1.0">Welcome Aboard.<br>You're part of something great.</h1>
@@ -628,8 +632,10 @@
     {label:"Measure Success",short:"Success"},
     {label:"30-60-90 Journey",short:"Journey"},
     {label:"Brand Ambassador",short:"Ambassador",locked:true},
+    {label:"Office, Timings & Attendance",short:"Office & Hours",hr:true},
     {label:"Leave Policy",short:"Leave Policy",hr:true},
     {label:"Code of Conduct",short:"Code of Conduct",hr:true},
+    {label:"Dress Code",short:"Dress Code",hr:true},
     {label:"Social Media Policy",short:"Social Media",hr:true},
     {label:"Welcome Aboard",short:"Finish"}
   ];
@@ -748,7 +754,7 @@
   }
 
   // rail with "HR Policies" sub-category
-  for(var i=1;i<=10;i++){
+  for(var i=1;i<=12;i++){
     if(i===8){ var gl=document.createElement('li'); gl.className='step group-label'; gl.textContent='HR Policies'; stepsEl.appendChild(gl); }
     (function(idx){
       var li=document.createElement('li'); li.className='step'+(idx===7?' endgroup':'')+(idx>=8?' hrpol':''); li.dataset.target=idx;
