@@ -1,13 +1,10 @@
-# TekFriday — Employee Onboarding (Video Journey)
+# TekFriday — Employee Onboarding (Video + Policies)
 
-An interactive onboarding experience where **each part plays as its own video**. Open a
-part and its video sequence plays automatically — timed reveals over an animated backdrop,
-with a real transport bar (play/pause, scrubber, elapsed/total time, replay). The **Next**
-button carries you to the next part, whose video then plays in turn.
+A branded onboarding experience in TekFriday's logo colours — **blue `#0060a9`** and
+**green `#6bb745`**, threaded through a signature blue→green gradient. The onboarding parts
+play as short videos with transport controls; the HR policies are readable reference
+documents grouped under "HR Policies".
 
-Everything is one self-contained `index.html` — no build step and no external media files.
-The "videos" are animated motion-graphic sequences rendered in the browser, so they stay
-crisp at any size, load instantly, and are easy to edit.
 
 ## Parts (each is a page-wise video)
 
